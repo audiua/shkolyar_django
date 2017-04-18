@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main',
+    'gdz',
 ]
 
 MIDDLEWARE = [
@@ -75,9 +77,13 @@ WSGI_APPLICATION = 'shkolyar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'shkolyar',
+         'USER': 'root',
+         'PASSWORD': 'zxcvbnm123',
+         'HOST': 'localhost',
+         'PORT': '',
+     }
 }
 
 
