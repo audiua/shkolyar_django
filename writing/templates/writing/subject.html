@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ page_title }}
+    {% if page > '1' %}
+         | Сторінка {{ page }}
+    {% endif %}
+{% endblock %}
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Твори" "writing:index" %}
+    {% breadcrumb clas.slug|add:" клас" "writing:clas" clas.slug %}
+    {% breadcrumb subject.title "writing:subject" clas.slug subject.slug %}
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+
+    {% block h1 %}
+        <h1 class="center">{{ h1 }}
+            {% if page > '1' %}
+                <small> | Сторінка {{ page }}</small>
+            {% endif %}
+        </h1>
+    {% endblock %}
+
+{#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'below-h1', 'entity': entity})) }}#}
+
+    {% include 'writing/_articles.html' %}
+
+    <div class="clearfix"></div>
+
+{#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'under-pagination', 'entity': entity})) }}#}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if articles.has_previous and articles.previous_page_number > 1 %}
+                <a href="{% url paginate_link articles.previous_page_number %}">previous</a>
+            {% elif articles.previous_page_number == 1 %}
+                <a href="{% url link %}">previous</a>
+            {% endif %}
+
+{#            {% for page in articles.paginator.page_range %}#}
+{#                <li class="{% if articles.number == page  %}active{% endif %}"><a href="?page={{page }}">{{ page }}</a></li>#}
+{#            {% endfor %}#}
+
+            <span class="current">
+                Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
+            </span>
+
+            {% if articles.has_next %}
+                <a href="{% url paginate_link articles.next_page_number %}">next</a>
+            {% endif %}
+        </span>
+    </div>
+
+    {% if page == 1 %}
+        <div class="description">
+            {{ clas.description }}
+        </div>
+    {% endif %}
+
+{% endblock %}
+

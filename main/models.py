@@ -1,6 +1,13 @@
 from django.db import models
 from datetime import datetime
 from unixtimestampfield.fields  import UnixTimeStampField
+import time
+
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset()\
+                                            .filter(public=1,
+                                                    public_time__lte=int(time.time()))
 
 class BaseModel(models.Model):
     class Meta:
