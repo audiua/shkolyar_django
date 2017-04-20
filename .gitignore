@@ -3,5 +3,8 @@ __pycache__
 *.log
 .idea
 bower-components
-var
+/var
 db.sqlite3
+/images/
+/static/
+/media/
