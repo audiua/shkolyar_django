@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load textbook_filters %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Підручники" "textbook:index" %}
+    {% breadcrumb textbook_clas.name|add:" клас" "textbook:clas" textbook_clas.slug %}
+    {% breadcrumb textbook_subject.title "textbook:subject" textbook_clas.slug textbook_subject.slug %}
+    {% breadcrumb textbook_book.author "textbook:book" textbook_clas.slug textbook_subject.slug textbook_book.slug %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+
+    <h1 class="center">Підручник {{ textbook_book.textbook_clas.name }} клас {{ textbook_book.textbook_subject.title }} {{ textbook_book.author }}</h1>
+
+{#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'below-h1', 'entity': entity})) }}#}
+
+    <div class="book">
+        <div class="book-image">
+            {% with 'textbook/'|str_add:textbook_book.textbook_clas.slug|str_add:'/'|str_add:textbook_book.textbook_subject.slug|str_add:'/'|str_add:textbook_book.id|str_add:"/origin.jpg" as img_path %}
+                <img src="{% static img_path %}" class="img-responsive" alt="Responsive image">
+            {% endwith %}
+        </div>
+
+        <div class="book-properties"><span class="properties">Клас: </span>{{ textbook_book.textbook_clas.name }} клас</div>
+        <div class="book-properties"><span class="properties">Предмет: </span>{{ textbook_book.textbook_subject.title }}</div>
+        <div class="book-properties"><span class="properties">Автор: </span>{{ textbook_book.author }}</div>
+        <div class="book-properties"><span class="properties">Рік: </span>{{ textbook_book.year|default:"" }}</div>
+        <div class="book-properties"><span class="properties">isbn: </span>{{ textbook_book.isbn }}</div>
+        <br><br>
+        <div class="book-properties">{{ textbook_book.description }}</div>
+
+    </div>
+
+    <div id="task-mark" class="bookmark">
+        <p class="add-to-favorite text-center">
+            <span class="masha_index masha_index10" rel="10"></span>
+            Для швидкого доступу до даного ГДЗ Вам слід
+            <a tabindex="0" role="button" data-toggle="popover" data-placement="bottom"
+               data-trigger="focus" title=""
+               data-content="Для того щоб додати це ГДЗ до закладок, натисни CTRL + D!"
+               data-original-title="Швидкий доступ до ГДЗ!">додати його до закладок
+            </a>.
+        </p>
+    </div>
+
+    <div class="clearfix"></div>
+
+{#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'under-task', 'entity': entity})) }}#}
+
+    {#todo ajax#}
+    <div class="view-pdf">
+        <div class="btn-group-lg">
+            <a rel="nofollow" href="#" class="btn btn-success lg textbook-pdf">Читати онлайн</a>
+            <a rel="nofollow" target="_blank" href="{% static 'textbook/'|str_add:textbook_book.textbook_clas.slug|str_add:'/'|str_add:textbook_book.textbook_subject.slug|str_add:'/'|str_add:textbook_book.id|str_add:'/textbook.pdf' %}" class="btn btn-success">Скачати</a>
+        </div>
+
+        <embed class="pdf-embed" data-pdf="{% static 'textbook/'|str_add:textbook_book.textbook_clas.slug|str_add:'/'|str_add:textbook_book.textbook_subject.slug|str_add:'/'|str_add:textbook_book.id|str_add:'/textbook.pdf' %}" src="{% static 'textbook/'|str_add:textbook_book.textbook_clas.slug|str_add:'/'|str_add:textbook_book.textbook_subject.slug|str_add:'/'|str_add:textbook_book.id|str_add:'/textbook.pdf' %}"
+               width="100%" height="800" alt="pdf"
+               pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+    </div>
+
+{% endblock %}
+
+{% block view_count %}
+    <div class="view-count">
+{#        <img src="{{ path('app_api_imgcounter', {'data':'TextbookBundle:Book_'~book.uri}) }}" ></img>#}
+    </div>
+{% endblock %}
+

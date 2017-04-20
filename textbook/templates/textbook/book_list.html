@@ -1,17 +1,18 @@
 {% load static %}
+{% load textbook_filters %}
 {% for book in books %}
 
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 center">
         <div class="book-view">
-            {% with 'gdz/'|add:book.gdz_clas.slug|add:'/'|add:book.gdz_subject.slug|add:'/'|add:book.slug|add:'/book/'|add:book.slug|add:'.'|add:book.img as img_path %}
+            {% with 'textbook/'|str_add:book.textbook_clas.slug|str_add:'/'|str_add:book.textbook_subject.slug|str_add:'/'|str_add:book.id|str_add:"/origin.jpg" as img_path %}
                 <img src="{% static img_path %}" class="img-responsive" alt="Responsive image">
             {% endwith %}
 
             <div class="book-mask"></div>
-            <a href="{% url 'gdz:book' book.gdz_clas.slug book.gdz_subject.slug book.slug %}" class="book-link">
+            <a href="{% url 'textbook:book' book.textbook_clas.slug book.textbook_subject.slug book.slug %}" class="book-link">
                 <span class="book-info">
-                    <span>{{ book.gdz_clas.slug }} клас</span><br />
-                    <span>{{ book.gdz_subject.title }}</span><br />
+                    <span>{{ book.textbook_clas.name }} клас</span><br />
+                    <span>{{ book.textbook_subject.title }}</span><br />
                     <span>{{ book.author }}</span><br />
                     <span>{{ book.year|default:"" }}</span><br />
                 </span>
@@ -24,3 +25,4 @@
     </div>
 {% endfor %}
 
+<div class="clearfix"></div>

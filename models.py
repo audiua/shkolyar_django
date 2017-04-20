@@ -455,62 +455,7 @@ class Task(models.Model):
         db_table = 'task'
 
 
-class TextbookBook(models.Model):
-    textbook_clas = models.ForeignKey('TextbookClas', models.DO_NOTHING, blank=True, null=True)
-    textbook_subject = models.ForeignKey('TextbookSubject', models.DO_NOTHING, blank=True, null=True)
-    author = models.CharField(max_length=500)
-    year = models.CharField(max_length=255, blank=True, null=True)
-    properties = models.TextField(blank=True, null=True)
-    lang = models.CharField(max_length=2, blank=True, null=True)
-    edition = models.CharField(max_length=255, blank=True, null=True)
-    isbn = models.CharField(max_length=255, blank=True, null=True)
-    format = models.CharField(max_length=255, blank=True, null=True)
-    slug = models.CharField(max_length=255)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField()
-    public = models.IntegerField()
-    public_time = models.IntegerField()
-    issue_id = models.TextField(blank=True, null=True)
-    issue_embed = models.TextField(blank=True, null=True)
-    vk_publish_time = models.IntegerField()
-    img = models.CharField(max_length=255, blank=True, null=True)
-    description = models.TextField()
-    uri = models.CharField(max_length=255)
-    is_promote = models.IntegerField()
 
-    class Meta:
-        managed = False
-        db_table = 'textbook_book'
-
-
-class TextbookClas(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.CharField(max_length=255)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField()
-    name = models.CharField(max_length=2, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    uri = models.CharField(max_length=255)
-    is_promote = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'textbook_clas'
-
-
-class TextbookSubject(models.Model):
-    textbook_clas = models.ForeignKey(TextbookClas, models.DO_NOTHING, blank=True, null=True)
-    title = models.CharField(max_length=255, blank=True, null=True)
-    slug = models.CharField(max_length=255)
-    description = models.CharField(max_length=255, blank=True, null=True)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField()
-    uri = models.CharField(max_length=255)
-    is_promote = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'textbook_subject'
 
 
 class Tizer(models.Model):

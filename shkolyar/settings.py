@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'gdz',
     'djangobower',
     'django_bootstrap_breadcrumbs',
+    'textbook',
 ]
 
 MIDDLEWARE = [
