@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-from unixtimestampfield.fields import UnixTimeStampField
+from unixtimestampfield.fields  import UnixTimeStampField
 
 class BaseModel(models.Model):
     class Meta:
