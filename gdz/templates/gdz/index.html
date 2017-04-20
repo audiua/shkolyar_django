@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block h1 %}
+    {{ h1 }}
+{% endblock %}
+
+{% block content %}
+    {% for book in books %}
+        {{book.title}}<br>
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if books.has_previous and books.previous_page_number > 1 %}
+                <a href="{% url 'gdz:index_paginate' books.previous_page_number %}">previous</a>
+            {% elif books.previous_page_number == 1 %}
+                <a href="{% url 'gdz:index' %}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ books.number }} of {{ books.paginator.num_pages }}.
+            </span>
+
+            {% if books.has_next %}
+                <a href="{% url 'gdz:index_paginate' books.next_page_number %}">next</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
+
