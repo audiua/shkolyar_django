@@ -5,7 +5,7 @@ from unixtimestampfield.fields import UnixTimeStampField
 
 class Writing(BaseModel, TimestampModel, PublishModel):
     clas = models.ForeignKey('WritingClas', models.DO_NOTHING, blank=True, null=True)
-    subject = models.ForeignKey('WritingSubject', models.DO_NOTHING, blank=True, null=True)
+    subject = models.ForeignKey('WritingSubject', models.DO_NOTHING, blank=True, null=True, related_name='subject_writings')
     text = models.TextField()
     length = models.SmallIntegerField()
     nausea = models.FloatField()
