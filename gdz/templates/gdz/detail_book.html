@@ -1,0 +1,107 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+    {{ block.super }}
+
+    {% load django_bootstrap_breadcrumbs %}
+    {% block breadcrumbs %}
+        {{ block.super }}
+        {% breadcrumb "ГДЗ" "gdz:index" %}
+        {% breadcrumb gdz_clas.slug|add:" клас" "gdz:clas" gdz_clas.slug %}
+        {% breadcrumb gdz_subject.title "gdz:subject" gdz_clas.slug gdz_subject.slug %}
+        {% breadcrumb gdz_book.author "gdz:book" gdz_clas.slug gdz_subject.slug gdz_book.slug %}
+    {% endblock %}
+
+    <h1 class="center">ГДЗ {{ gdz_clas.slug }} клас {{ gdz_subject.title }} {{ gdz_book.author }}</h1>
+
+    <div class="clearfix"></div>
+
+    <div class="book">
+        <div class="book-image">
+            {% with 'gdz/'|add:gdz_book.gdz_clas.slug|add:'/'|add:gdz_book.gdz_subject.slug|add:'/'|add:gdz_book.slug|add:'/book/'|add:gdz_book.slug|add:'.'|add:gdz_book.img as img_path %}
+                <img src="{% static img_path %}" class="" alt="">
+            {% endwith %}
+
+        </div>
+
+        <div class="book-properties">
+            <div class="book-properties"><span class="properties">Клас: </span>{{ gdz_clas.slug }} клас</div>
+            <div class="book-properties"><span class="properties">Предмет: </span>{{ gdz_subject.title }}</div>
+            <div class="book-properties"><span class="properties">Автор: </span>{{ gdz_book.author }}</div>
+            <div class="book-properties"><span class="properties">Рік: </span>{{ gdz_book.year|default:"" }}</div>
+        </div>
+
+        <div class="book-properties">{{ gdz_book.description|safe }}</div>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div id="task-mark" class="bookmark">
+        <p class="add-to-favorite text-center">
+            Для швидкого доступу до даного ГДЗ Вам слід
+            <a tabindex="0" role="button" data-toggle="popover" data-placement="bottom"
+               data-trigger="focus" title=""
+               data-content="Для того щоб додати це ГДЗ до закладок, натисни CTRL + D!"
+               data-original-title="Швидкий доступ до ГДЗ!">додати його до закладок
+            </a>.
+        </p>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="task-panel">
+
+        <div class="task-panel-head">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 prev-task task-link center">
+                <button class="btn btn-info"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> <span class="hidden-xs">Попередне</span> </button>
+            </div>
+
+            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6 center">
+                Розв'язок до завдяння №<span class="task-number"></span>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 next-task task-link center">
+                <button class="btn btn-info"> <span class="hidden-xs">Наступне</span>  <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+        <div class="task-img center">
+            <img class="" alt="Скористайтеся навігацією, яка знаходиться нижче, щоб знайти потрібне рішення">
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="block-title center">
+        Навігація
+    </div>
+
+    {% load cache %}
+    {% cache 0 tasks gdz_book.id using="file_cache" %}
+        {% load gdz_tasks %}
+        {% gdz_tasks %}
+    {% endcache %}
+
+
+
+{#    <div class="tasks">#}
+{#        {{ render(controller('GdzBundle:Default:tasks',#}
+{#            {#}
+{#                'clas': gdz_book.clas.slug,#}
+{#                'subject': gdz_book.subject.slug,#}
+{#                'book': gdz_book.slug#}
+{#            }#}
+{#        )) }}#}
+{#    </div>#}
+
+{% endblock %}
+
+{% block view_count %}
+    <div class="view-count">
+{#        <img src="{{ path('app_api_imgcounter', {'data':'GdzBundle:Book_'~gdz_book.uri}) }}" ></img>#}
+    </div>
+{% endblock %}

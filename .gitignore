@@ -2,3 +2,9 @@ __pycache__
 *.db
 *.log
 .idea
+bower-components
+/var
+db.sqlite3
+/images/
+/static/
+/media/

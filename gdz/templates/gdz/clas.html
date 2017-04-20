@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ page_title }}
+    {% if page > '1' %}
+         | Сторінка {{ page }}
+    {% endif %}
+{% endblock %}
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "ГДЗ" "gdz:index" %}
+    {% breadcrumb gdz_clas.slug|add:" клас" "gdz:clas" %}
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+
+    {% block h1 %}
+
+        <h1 class="center">{{ h1 }}
+            {% if page > '1' %}
+                <small> | Сторінка {{ page }}</small>
+            {% endif %}
+        </h1>
+    {% endblock %}
+
+    {% include 'gdz/book_list.html' %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if books.has_previous and books.previous_page_number > 1 %}
+                <a href="{% url paginate_link gdz_clas.slug books.previous_page_number %}">previous</a>
+            {% elif books.previous_page_number == 1 %}
+                <a href="{% url link gdz_clas.slug %}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ books.number }} of {{ books.paginator.num_pages }}.
+            </span>
+
+            {% if books.has_next %}
+                <a href="{% url paginate_link gdz_clas.slug books.next_page_number %}">next</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
+
+{% block domready %}
+    console.log('hello')
+{% endblock %}

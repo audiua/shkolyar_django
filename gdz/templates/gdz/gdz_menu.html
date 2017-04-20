@@ -1,0 +1,23 @@
+<li class="dropdown">
+    <a href="{% url 'gdz:index' %}" tabindex="0" data-toggle="dropdown" data-submenu="">
+        ГДЗ<span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        {% for item in items %}
+            <li class="dropdown-submenu">
+                <a href="{% url 'gdz:clas' item.slug %}" tabindex="0">{{ item.slug }} клас</a>
+                <ul class="dropdown-menu">
+                    {% for subject in item.clas_subjects.all %}
+
+                        {% if subject.is_promote == 1 %}
+                            <li><a href="{% url 'gdz:subject' item.slug subject.slug %}" tabindex="0">{{ subject.title }}</a></li>
+                            {% else %}
+                            <li><a rel="nofollow" href="{% url 'gdz:subject' item.slug subject.slug %}" tabindex="0">{{ subject.title }}</a></li>
+                        {% endif %}
+
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</li>

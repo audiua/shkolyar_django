@@ -1,0 +1,27 @@
+{% load static %}
+{% for book in books %}
+
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 center">
+        <div class="book-view">
+            {% with 'gdz/'|add:book.gdz_clas.slug|add:'/'|add:book.gdz_subject.slug|add:'/'|add:book.slug|add:'/book/'|add:book.slug|add:'.'|add:book.img as img_path %}
+                <img src="{% static img_path %}" class="img-responsive" alt="Responsive image">
+            {% endwith %}
+
+            <div class="book-mask"></div>
+            <a href="{% url 'gdz:book' book.gdz_clas.slug book.gdz_subject.slug book.slug %}" class="book-link">
+                <span class="book-info">
+                    <span>{{ book.gdz_clas.slug }} клас</span><br />
+                    <span>{{ book.gdz_subject.title }}</span><br />
+                    <span>{{ book.author }}</span><br />
+                    <span>{{ book.year|default:"" }}</span><br />
+                </span>
+                <div class="article-view-count">
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> {{ book.view_count }}
+                </div>
+            </a>
+
+        </div>
+    </div>
+{% endfor %}
+
+<div class="clearfix"></div>

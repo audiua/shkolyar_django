@@ -1,0 +1,36 @@
+{% load gdz_filters %}
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    {% for section in data %}
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading_{{ forloop.counter }}">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne">
+                        {{ section.section|section_name }}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse_{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_{{ forloop.counter }}">
+                <div class="panel-group" id="accordion_{{ forloop.counter }}">
+                    <div class="panel-body">
+
+                        {% for item in section.childs %}
+                            {% if item.width %}
+                                {% include 'gdz/_task.html' with item=item %}
+                            {% else %}
+                                {% include 'gdz/_nested.html' with section=item.section data=item parent_id=forloop.parentloop.counter child=forloop.counter %}
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
