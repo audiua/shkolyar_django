@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% load gdz_filters %}
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion_{{ parent_id }}" href="#collapse_{{ parent_id }}_{{ child }}">
+                {{ section|section_name }}
+            </a>
+        </h4>
+    </div>
+    <div id="collapse_{{ parent_id }}_{{ child }}" class="panel-collapse collapse">
+        <div class="panel-group" id="accordion_{{ parent_id }}_{{ child }}">
+            <div class="panel-body">
+
+                {% for nested_item in data.childs %}
+                    {% if nested_item.width %}
+{#                        {% set imgPath = '/gdz/'~book.clas.slug~'/'~book.subject.slug~'/'~book.slug~'/task/'~key~'/'~section~'/'~nested_item.filename %}#}
+                        {% include 'gdz/_task.html' with item=nested_item %}
+                    {% else %}
+{#                        {% include 'GdzBundle:Default:_sub_nested.html.twig' with {'data':nested_item, 'parentId': i} %}#}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+

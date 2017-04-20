@@ -18,7 +18,7 @@
                             {% if item.width %}
                                 {% include 'gdz/_task.html' with item=item %}
                             {% else %}
-{#                                    {% include 'GdzBundle:Default:_nested.html.twig' with {'section':section, 'data':item, 'parentId': i, 'child': child} %}#}
+                                {% include 'gdz/_nested.html' with section=item.section data=item parent_id=forloop.parentloop.counter child=forloop.counter %}
                             {% endif %}
                         {% endfor %}
 
