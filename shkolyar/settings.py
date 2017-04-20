@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'djangobower',
     'django_bootstrap_breadcrumbs',
     'textbook',
+    'writing',
 ]
 
 MIDDLEWARE = [

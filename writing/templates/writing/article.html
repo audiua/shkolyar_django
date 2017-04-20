@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load textbook_filters %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Твори" "writing:index" %}
+    {% breadcrumb clas.slug|add:" клас" "writing:clas" clas.slug %}
+    {% breadcrumb subject.title "writing:subject" clas.slug subject.slug %}
+    {% breadcrumb article.title "writing:article" clas.slug subject.slug article.slug %}
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+
+    <h1 class="center">{{ h1 }}</h1>
+    {% with article.id|str_add:article.slug|md5 as hash %}
+        <img src="{% static "writing/thumbs/"|str_add:hash|str_add:"/"|str_add:article.slug|str_add:'.'|str_add:article.thumbnail_ext%}" class="img-responsive" alt="">
+    {% endwith %}
+    {#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'below-h1', 'entity': entity})) }}#}
+    {{ article.text|safe }}
+
+{#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'under-article', 'entity': entity})) }}#}
+
+    <div class="clearfix"></div>
+{% endblock %}
+
+{% block view_count %}
+    <div class="view-count">
+{#        <img src="{{ path('app_api_imgcounter', {'data':'WritingBundle:Writing_'~article.uri}) }}" >#}
+    </div>
+{% endblock %}
+
