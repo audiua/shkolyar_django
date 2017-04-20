@@ -1,14 +1,8 @@
 import time
 from django.db import models
 from django.core.urlresolvers import reverse
-from main.models import BaseModel, TimestampModel
+from main.models import BaseModel, TimestampModel, PublishedManager
 from unixtimestampfield.fields import UnixTimeStampField
-
-class PublishedManager(models.Manager):
-    def get_queryset(self):
-        return super(PublishedManager, self).get_queryset()\
-                                            .filter(public=1,
-                                                    public_time__lte=int(time.time()))
 
 class GdzClas(BaseModel, TimestampModel):
     description = models.TextField(blank=True, null=True)

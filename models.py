@@ -517,51 +517,7 @@ class VkTimePosting(models.Model):
         db_table = 'vk_time_posting'
 
 
-class Writing(models.Model):
-    clas = models.ForeignKey('WritingClas', models.DO_NOTHING, blank=True, null=True)
-    subject = models.ForeignKey('WritingSubject', models.DO_NOTHING, blank=True, null=True)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField()
-    public_time = models.IntegerField()
-    text = models.TextField()
-    title = models.CharField(max_length=255)
-    slug = models.CharField(max_length=255)
-    length = models.SmallIntegerField()
-    nausea = models.FloatField()
-    thumbnail_ext = models.CharField(max_length=255, blank=True, null=True)
-    public = models.IntegerField()
-    vk_img = models.TextField(blank=True, null=True)
-    vk_public_time = models.IntegerField(blank=True, null=True)
-    uri = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'writing'
-
-
-class WritingClas(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.CharField(max_length=255)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField()
-    uri = models.CharField(max_length=255)
-
-    class Meta:
-        managed = False
-        db_table = 'writing_clas'
-
-
-class WritingSubject(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.CharField(max_length=255)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField()
-    uri = models.CharField(max_length=255, blank=True, null=True)
-    writing_clas = models.ForeignKey(WritingClas, models.DO_NOTHING, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'writing_subject'
 
 
 class Zno(models.Model):

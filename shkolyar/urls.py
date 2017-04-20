@@ -19,9 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^admin', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'^gdz/', include('gdz.urls', namespace='gdz')),
     url(r'^textbook/', include('textbook.urls', namespace='textbook')),
+    url(r'^writing/', include('writing.urls', namespace='writing')),
     url(r'^', include('main.urls', namespace='main')),
 ]
 
