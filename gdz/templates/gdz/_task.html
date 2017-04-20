@@ -1,0 +1,4 @@
+{% load static %}
+<div class="col-lg-1 col-md-2 col-sm-3 col-xs-3 task" data-width="{{ item.width }}" data-heigth="{{ item.heigth }}" data-img="{% static item.img_path %}">
+    {{ item.task_number }}
+</div>

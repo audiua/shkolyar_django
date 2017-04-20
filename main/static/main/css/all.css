@@ -1,0 +1,579 @@
+@charset "UTF-8";
+body {
+  overflow-x: hidden; }
+
+.hide {
+  display: none; }
+
+.center {
+  text-align: center; }
+
+a.off {
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px; }
+
+.search-button {
+  height: 50px;
+  padding-top: 12px; }
+
+.google-search {
+  display: none;
+  margin: 10px; }
+  .google-search .gsc-input {
+    background: none !important; }
+  .google-search .gsc-search-button {
+    height: 25px;
+    color: #0f74a8 !important;
+    background-image: none !important; }
+
+.view-count {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0; }
+  .view-count img {
+    width: 1px;
+    height: 1px; }
+
+.ads-block {
+  text-align: center; }
+
+@media screen and (min-width: 999px) {
+  html body {
+    position: relative;
+    padding-top: 90px;
+    font-family: "Open Sans Condensed", sans-serif !important;
+    color: #555555;
+    font-size: 18px;
+    background: #D4D4D4 url("/images/Screenshot.jpg");
+    background-attachment: fixed; }
+    html body .logo {
+      position: relative; }
+      html body .logo .strupko {
+        width: 50px;
+        position: absolute;
+        top: 2px; }
+      html body .logo .logo-ankor {
+        position: absolute;
+        left: 50px;
+        font-size: 38px;
+        text-transform: uppercase; }
+    html body .ads-block {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    html body .big {
+      font-size: 30px; }
+    html body a.off {
+      padding-bottom: 5px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 10px; }
+    html body .view-count {
+      position: absolute;
+      z-index: 100;
+      top: 0;
+      left: 0; }
+      html body .view-count img {
+        width: 1px;
+        height: 1px; }
+    html body .clear-row {
+      margin-left: -15px;
+      margin-right: -15px; }
+    html body .navbar-nav {
+      padding-left: 280px; }
+      html body .navbar-nav li a {
+        font-size: 20px; }
+    html body .navbar-static-top {
+      width: 110%;
+      position: absolute;
+      top: 0px;
+      -webkit-box-shadow: 0 0 15px #333;
+      -moz-box-shadow: 0 0 15px #333;
+      box-shadow: 0 0 15px #333;
+      background-color: #ffffff; }
+    html body .page {
+      padding-top: 15px;
+      background-color: #ffffff;
+      -webkit-box-shadow: 0 0 15px #333;
+      -moz-box-shadow: 0 0 15px #333;
+      box-shadow: 0 0 15px #333;
+      background-color: #ffffff; }
+    html body .container {
+      width: 1100px; }
+      html body .container .block-title {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 26px; }
+      html body .container .article-view-count {
+        margin-top: 5px;
+        color: #999;
+        font-size: 12px; }
+      html body .container .right-block {
+        width: 300px; }
+        html body .container .right-block .sidebar-block {
+          width: 300px;
+          margin-right: 0px;
+          margin-left: 15px; }
+          html body .container .right-block .sidebar-block .top-article-item {
+            position: relative;
+            height: 120px;
+            width: 300px;
+            margin-left: -15px; }
+            html body .container .right-block .sidebar-block .top-article-item .top-article-image {
+              position: absolute;
+              left: 0px;
+              width: 180px;
+              height: 110px; }
+              html body .container .right-block .sidebar-block .top-article-item .top-article-image img {
+                width: 100%;
+                height: 100%; }
+            html body .container .right-block .sidebar-block .top-article-item .top-article-link {
+              position: absolute;
+              left: 180px;
+              font-size: 14px;
+              margin-left: -10px; }
+            html body .container .right-block .sidebar-block .top-article-item span.ankor {
+              position: absolute;
+              left: 180px;
+              top: 30px;
+              width: 120px;
+              font-size: 16px; }
+          html body .container .right-block .sidebar-block .top-article-image img {
+            width: 160px;
+            height: 90px; }
+          html body .container .right-block .sidebar-block .top-article-link {
+            font-size: 14px;
+            margin-left: -10px; }
+      html body .container .left-block {
+        width: 800px; }
+        html body .container .left-block .content-block {
+          margin-left: 15px;
+          margin-right: 15px; }
+          html body .container .left-block .content-block .book-view {
+            position: relative;
+            height: 240px;
+            width: 180px;
+            margin-bottom: 15px; }
+            html body .container .left-block .content-block .book-view img {
+              position: absolute;
+              z-index: 13;
+              height: 240px;
+              width: 180px; }
+              html body .container .left-block .content-block .book-view img.cover {
+                position: absolute;
+                z-index: 11; }
+            html body .container .left-block .content-block .book-view .book-mask {
+              position: absolute;
+              background-color: #333;
+              opacity: 0.8;
+              z-index: 12;
+              height: 240px;
+              width: 180px; }
+            html body .container .left-block .content-block .book-view a.book-link {
+              z-index: 12;
+              left: 0;
+              top: 0;
+              position: absolute;
+              height: 240px;
+              width: 180px;
+              text-decoration: none;
+              color: #fafafa;
+              font-weight: 500;
+              font-size: 18px;
+              text-align: center;
+              padding-top: 40px; }
+          html body .container .left-block .content-block .book .book-image {
+            float: left;
+            margin-right: 30px; }
+            html body .container .left-block .content-block .book .book-image img {
+              width: 200px;
+              float: left; }
+          html body .container .left-block .content-block .book .book-properties .properties {
+            font-size: 12px;
+            color: #999;
+            padding-right: 15px; }
+          html body .container .left-block .content-block .task {
+            padding: 5px;
+            text-align: center; }
+          html body .container .left-block .content-block .task-img {
+            margin-top: 30px; }
+            html body .container .left-block .content-block .task-img img {
+              width: 100%; }
+          html body .container .left-block .content-block .task:hover {
+            outline: solid 1px blue;
+            color: blue; }
+          html body .container .left-block .content-block .task.active {
+            outline: solid 1px blue;
+            color: blue; }
+          html body .container .left-block .content-block .task-link li {
+            display: inline; }
+          html body .container .left-block .content-block li.prev-task {
+            margin-right: 50px; }
+          html body .container .left-block .content-block .task-panel {
+            margin-top: 45px;
+            margin-bottom: 45px;
+            box-shadow: 0 0 5px blue;
+            padding-top: 10px; }
+          html body .container .left-block .content-block .task-link:hover {
+            background-color: #fafafa;
+            color: blue; }
+          html body .container .left-block .content-block .panel-default > .panel-heading {
+            background-color: #fff; }
+          html body .container .left-block .content-block .panel-group .panel {
+            box-shadow: 0 0 5px #ccc;
+            border-radius: 0px; }
+          html body .container .left-block .content-block .breadcrumb, html body .container .left-block .content-block .btn-lg {
+            border-radius: 0px; }
+          html body .container .left-block .content-block .view-pdf {
+            margin-top: 25px; }
+          html body .container .left-block .content-block .item-block {
+            text-align: center;
+            margin-bottom: 10px;
+            height: 300px;
+            width: 240px; }
+            html body .container .left-block .content-block .item-block a {
+              font-size: 18px;
+              display: block; }
+            html body .container .left-block .content-block .item-block:hover {
+              -webkit-box-shadow: 0 0 15px #555;
+              -moz-box-shadow: 0 0 15px #555;
+              box-shadow: 0 0 15px #555; }
+            html body .container .left-block .content-block .item-block img {
+              width: 250px;
+              height: 180px;
+              margin-bottom: 5px; }
+          html body .container .left-block .content-block .last-block {
+            padding-bottom: 40px;
+            clear: both; }
+            html body .container .left-block .content-block .last-block .last-block-title {
+              padding-top: 30px;
+              padding-bottom: 30px;
+              text-align: center;
+              font-size: 26px; }
+          html body .container .left-block .content-block P {
+            text-indent: 1.5em;
+            /* Отступ первой строки */
+            text-align: justify;
+            /* Выравнивание по ширине */ }
+          html body .container .left-block .content-block .attachment img {
+            margin-bottom: 5px;
+            max-width: 330px;
+            margin-right: 10px;
+            float: left; }
+          html body .container .left-block .content-block .attachment + p:after {
+            clear: both;
+            content: "";
+            display: table; }
+      html body .container .bookmark {
+        margin-top: 15px; }
+      html body .container .bookmark-btn {
+        width: 300px;
+        border-radius: 0px; }
+      html body .container .brand-link a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        height: 100%;
+        width: 100%; }
+    html body #footer {
+      -webkit-box-shadow: 0 0 15px #333;
+      -moz-box-shadow: 0 0 15px #333;
+      box-shadow: 0 0 15px #333;
+      background-color: #ffffff;
+      margin-top: 40px; }
+      html body #footer .container-footer {
+        margin: auto;
+        width: 800px; }
+      html body #footer ul {
+        list-style-type: none; }
+      html body #footer .footer-section {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-left: 40px; } }
+@media screen and (max-width: 998px) {
+  html {
+    min-height: 100%; }
+    html body {
+      position: relative;
+      font-family: "Open Sans Condensed", sans-serif !important;
+      color: #555555;
+      font-size: 18px; }
+      html body .logo {
+        position: relative; }
+        html body .logo .strupko {
+          width: 50px;
+          position: absolute;
+          top: 2px; }
+        html body .logo .logo-ankor {
+          position: absolute;
+          top: 20px;
+          left: 40px;
+          font-size: 36px;
+          text-transform: uppercase; }
+      html body .ads-block {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      html body .navbar-toggle .icon-bar {
+        background-color: #ccc;
+        width: 40px;
+        height: 5px; }
+      html body .navbar {
+        margin-bottom: 0px; }
+      html body .navbar-nav {
+        padding-left: 20px; }
+        html body .navbar-nav li a {
+          font-size: 20px; }
+      html body .container .row {
+        margin-right: -15px; }
+      html body .container .block-title {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 22px; }
+      html body .container .article-view-count {
+        margin-top: 5px;
+        color: #999;
+        font-size: 12px; }
+      html body .container .right-block .sidebar-block .block-title {
+        text-align: center; }
+      html body .container .right-block .sidebar-block .bookmark-btn-block {
+        text-align: center; }
+      html body .container .right-block .sidebar-block .social-links {
+        text-align: center; }
+      html body .container .right-block .sidebar-block #vk_groups {
+        margin: auto; }
+      html body .container .right-block .sidebar-block .top-article-item {
+        margin-bottom: 10px;
+        text-align: center; }
+        html body .container .right-block .sidebar-block .top-article-item .top-article-image a img {
+          width: 300px;
+          height: 210px;
+          margin: auto; }
+        html body .container .right-block .sidebar-block .top-article-item .top-article-link {
+          font-size: 14px;
+          margin-bottom: 10px; }
+      html body .container .left-block .content-block .last-block {
+        padding-bottom: 40px;
+        clear: both; }
+        html body .container .left-block .content-block .last-block .last-block-title {
+          padding-top: 30px;
+          padding-bottom: 30px;
+          text-align: center;
+          font-size: 20px;
+          font-weight: 600; }
+      html body .container .left-block .content-block P {
+        text-indent: 1.5em;
+        /* Отступ первой строки */
+        text-align: justify;
+        /* Выравнивание по ширине */ }
+      html body .container .left-block .content-block img {
+        max-width: 290px; }
+      html body .container .left-block .content-block .book-view {
+        position: relative;
+        height: 320px;
+        width: 240px;
+        margin-bottom: 15px; }
+        html body .container .left-block .content-block .book-view img {
+          position: absolute;
+          z-index: 13;
+          height: 320px;
+          width: 240px; }
+          html body .container .left-block .content-block .book-view img.cover {
+            position: absolute;
+            z-index: 11; }
+        html body .container .left-block .content-block .book-view .book-mask {
+          position: absolute;
+          background-color: #333;
+          opacity: 0.8;
+          z-index: 12;
+          height: 320px;
+          width: 240px; }
+        html body .container .left-block .content-block .book-view a.book-link {
+          z-index: 12;
+          left: 0;
+          top: 0;
+          position: absolute;
+          height: 320px;
+          width: 240px;
+          text-decoration: none;
+          color: #fafafa;
+          font-weight: 500;
+          font-size: 18px;
+          text-align: center;
+          padding-top: 40px; }
+      html body .container .left-block .content-block .book .book-image {
+        float: left;
+        margin-right: 30px; }
+        html body .container .left-block .content-block .book .book-image img {
+          width: 200px;
+          float: left; }
+      html body .container .left-block .content-block .book .book-properties .properties {
+        font-size: 12px;
+        color: #999;
+        padding-right: 15px; }
+      html body .container .left-block .content-block .task {
+        padding: 5px;
+        text-align: center; }
+      html body .container .left-block .content-block .task-img {
+        margin-top: 30px; }
+        html body .container .left-block .content-block .task-img img {
+          width: 100%; }
+      html body .container .left-block .content-block .task:hover {
+        outline: solid 1px blue;
+        color: blue; }
+      html body .container .left-block .content-block .task.active {
+        outline: solid 1px blue;
+        color: blue; }
+      html body .container .left-block .content-block .task-link li {
+        display: inline; }
+      html body .container .left-block .content-block li.prev-task {
+        margin-right: 50px; }
+      html body .container .left-block .content-block .task-panel {
+        margin-top: 45px;
+        margin-bottom: 45px;
+        box-shadow: 0 0 5px blue;
+        padding-top: 10px; }
+      html body .container .left-block .content-block .task-link:hover {
+        background-color: #fafafa;
+        color: blue; }
+      html body .container .left-block .content-block .panel-default > .panel-heading {
+        background-color: #fff; }
+      html body .container .left-block .content-block .panel-group .panel {
+        box-shadow: 0 0 5px #ccc;
+        border-radius: 0px; }
+      html body .container .left-block .content-block .breadcrumb, html body .container .left-block .content-block .btn-lg {
+        border-radius: 0px; }
+      html body .container .left-block .content-block .view-pdf {
+        margin-top: 25px; }
+      html body .container .left-block .content-block .item-block {
+        text-align: center;
+        margin-bottom: 10px;
+        height: 300px;
+        width: 240px; }
+        html body .container .left-block .content-block .item-block a {
+          font-size: 18px;
+          display: block; }
+        html body .container .left-block .content-block .item-block:hover {
+          -webkit-box-shadow: 0 0 15px #555;
+          -moz-box-shadow: 0 0 15px #555;
+          box-shadow: 0 0 15px #555; }
+        html body .container .left-block .content-block .item-block img {
+          width: 250px;
+          height: 180px;
+          margin-bottom: 5px; }
+      html body .container .left-block .content-block .book-view {
+        margin: auto;
+        height: 340px; }
+      html body .container .left-block .content-block .book .book-image {
+        margin: auto;
+        float: left;
+        margin-right: 30px; }
+        html body .container .left-block .content-block .book .book-image img {
+          width: 240px; }
+      html body .container .left-block .content-block .book .book-properties .properties {
+        font-size: 12px;
+        color: #999;
+        padding-right: 15px; }
+      html body .container .bookmark {
+        margin-top: 15px; }
+      html body .container .bookmark-btn {
+        width: 300px; }
+      html body .container .brand-link a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        height: 100%;
+        width: 100%; }
+      html body .container .breadcrumb, html body .container .btn-lg {
+        border-radius: 0px; }
+      html body #footer {
+        background-color: #ffffff;
+        margin-top: 40px; }
+        html body #footer .container-footer {
+          margin: auto; }
+        html body #footer ul {
+          list-style-type: none; }
+        html body #footer .footer-section {
+          padding-top: 15px;
+          padding-bottom: 15px;
+          margin-left: 40px; }
+      html body .view-pdf {
+        margin-top: 25px; } }
+#noice-modal .close {
+  padding: 15px;
+  font-size: 32px;
+  font-weight: 600; }
+
+.noice-block {
+  height: 150px; }
+
+.noice {
+  height: 100px;
+  width: 100px;
+  opacity: 0.5;
+  margin-bottom: 15px;
+  margin-left: 40px; }
+
+.noice img {
+  width: 100%;
+  height: auto;
+  cursor: pointer; }
+
+.noice.active {
+  opacity: 1; }
+
+.noice-title {
+  text-align: center;
+  font-size: 26px;
+  color: #fafafa;
+  padding: 25px; }
+
+.separator {
+  margin-top: 35px; }
+
+.modal {
+  border-bottom: 1px solid #2aabd2;
+  border-top: 1px solid #2aabd2; }
+
+.player {
+  width: 100px !important;
+  margin-left: 40px; }
+
+.player > .slider {
+  display: none; }
+
+.noice.active + .player > .slider {
+  display: block;
+  width: 100% !important; }
+
+.tooltip {
+  display: none !important; }
+
+.slider-selection {
+  background-color: green !important; }
+
+.slider-horizontal .slider-handle-container, .slider-horizontal .slider-track {
+  height: 2px !important; }
+
+.slider-handle {
+  position: absolute;
+  width: 25px !important;
+  height: 25px !important;
+  cursor: pointer;
+  background-color: #fafafa !important;
+  border-radius: 15px !important; }
+
+.slider-horizontal .slider-handle {
+  margin-left: -10px;
+  margin-top: -12px !important; }
+
+.modal-content {
+  background-color: #2aabd2; }
+
+.modal-header {
+  margin-bottom: 15px; }
+
+/*# sourceMappingURL=all.css.map */
