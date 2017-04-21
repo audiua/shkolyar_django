@@ -34,3 +34,5 @@
 + noice modal
 + google search
 + footer
+    ####v0.9.1
+    + исправлено путь к фоновой картинки в scss
