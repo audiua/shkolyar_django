@@ -1,0 +1,119 @@
+{% load static %}
+<div class="modal fade bs-example-modal-lg" id="noice-modal" tabindex="-1" role="dialog" aria-labelledby="noiceModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">X</span>
+            </button>
+
+            <p class="noice-title">
+                Змішай різні звуки і створи ідеальне середовище.
+            </p>
+
+            <div class="noices ">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block separator">
+                    <div class="noice rain-noice">
+                        <img src="{% static 'noice/img/rain.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="rain">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block separator">
+                    <div class="noice thunderstorm-noice">
+                        <img src="{% static 'noice/img/thunderstorm.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="thunderstorm">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block separator">
+                    <div class="noice fire-noice">
+                        <img src="{% static 'noice/img/fire.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="fire">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block separator">
+                    <div class="noice wind-noice" >
+                        <img class="" src="{% static 'noice/img/wind.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="wind">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block">
+                    <div class="noice forest-noice">
+                        <img src="{% static 'noice/img/forest.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="forest">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block">
+                    <div class="noice leaves-noice">
+                        <img src="{% static 'noice/img/leaves.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="leaves">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block">
+                    <div class="noice summernight-noice">
+                        <img src="{% static 'noice/img/summernight.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="summernight">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block">
+                    <div class="noice seaside-noice">
+                        <img src="{% static 'noice/img/seaside.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="seaside">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block">
+                    <div class="noice water-noice">
+                        <img src="{% static 'noice/img/water.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="water">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block">
+                    <div class="noice waterstream-noice">
+                        <img src="{% static 'noice/img/waterstream.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="waterstream">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block">
+                    <div class="noice coffee-noice">
+                        <img src="{% static 'noice/img/coffee.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="coffee">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 center noice-block">
+                    <div class="noice train-noice">
+                        <img src="{% static 'noice/img/train.png' %}" alt="">
+                    </div>
+                    <div class="player" data-noice="train">
+                        <div class="slider"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'main/js/noice.js' %}"></script>

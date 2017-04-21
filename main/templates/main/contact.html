@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Контакти" "main:contact" %}
+{% endblock %}
+
+{% block content %}
+
+
+    <h1 class="center">{{ h1 }}</h1>
+
+    <div class="">
+        <p>
+            Усі свої побажання, скарги чи пропозиції відсилайте на адресу www.shkolyar.info@gmail.com
+        </p>
+        <p>
+            З питань реклами на порталі - пишіть на адресу www.shkolyar.info@gmail.com
+        </p>
+
+    </div>
+
+{% endblock %}
+

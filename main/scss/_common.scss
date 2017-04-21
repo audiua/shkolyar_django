@@ -1,0 +1,56 @@
+body { overflow-x: hidden;}
+
+.divider{
+  display: none;
+}
+
+.hide{
+  display: none;
+}
+
+.center{
+  text-align: center;
+}
+
+a.off {
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+
+}
+
+.search-button{
+  height: 50px;
+  padding-top: 12px;
+}
+
+.google-search{
+  display: none;
+  margin: 10px;
+
+  .gsc-input{
+    background: none !important;
+  }
+  .gsc-search-button{
+    height: 25px;
+    color: #0f74a8 !important;
+    background-image: none!important;
+  }
+}
+
+.view-count {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  img {
+    width: 1px;
+    height: 1px;
+  }
+
+}
+
+.ads-block {
+  text-align: center;
+}

@@ -1,0 +1,125 @@
+.book-view {
+  position: relative;
+  height: $bookListHeigth;
+  width: $bookListWidth;
+  margin-bottom: 15px;
+
+  img{
+    position: absolute;
+    z-index: 13;
+    height: $bookListHeigth;
+    width: $bookListWidth;
+
+    &.cover{
+      position: absolute;
+      z-index: 11;
+    }
+  }
+
+  .book-mask{
+    position: absolute;
+    background-color: #333;
+    opacity: 0.8;
+    z-index: 12;
+    height: $bookListHeigth;
+    width: $bookListWidth;
+  }
+
+  a {
+    &.book-link {
+      z-index: 12;
+      left: 0;
+      top: 0;
+      position: absolute;
+      height: $bookListHeigth;
+      width: $bookListWidth;
+      text-decoration: none;
+      color: #fafafa;
+      font-weight: 500;
+      font-size: 18px;
+      text-align: center;
+      padding-top: 40px;
+    }
+  }
+}
+
+.book {
+  .book-image {
+    float: left;
+    margin-right: 30px;
+    img{
+      width: 200px;
+      float: left;
+    }
+  }
+
+  .book-properties {
+
+    .properties {
+      font-size: 12px;
+      color: #999;
+      padding-right: 15px;
+    }
+  }
+}
+
+
+.task{
+  padding: 5px;
+  text-align: center;
+}
+
+.task-img{
+  margin-top: 30px;
+  img{
+    width: 100%;
+  }
+}
+
+.task:hover{
+  outline: solid 1px blue;
+  color: blue;
+}
+
+.task.active{
+  outline: solid 1px blue;
+  color: blue;
+}
+
+.task-link li{
+  display: inline;
+}
+
+li.prev-task{
+  margin-right: 50px;
+}
+
+.task-panel{
+  margin-top: 45px;
+  margin-bottom: 45px;
+  box-shadow: 0 0 5px blue;
+  padding-top: 10px;
+}
+
+.task-link:hover{
+  background-color: #fafafa;
+  color: blue;
+}
+
+.panel-default>.panel-heading{
+  background-color: #fff;
+
+}
+
+.panel-group .panel{
+  box-shadow: 0 0 5px #ccc;
+  border-radius: 0px;
+}
+
+.breadcrumb, .btn-lg {
+  border-radius: 0px;
+}
+
+.view-pdf{
+  margin-top: 25px;
+}

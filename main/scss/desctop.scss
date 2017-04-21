@@ -1,0 +1,256 @@
+@media screen and (min-width: 999px) {
+	$bookListWidth:180px;
+	$bookListHeigth:240px;
+	$fontSize: 18px;
+	$fontSizeInfo: 26px;
+	$fontSizeTitle: 30px;
+	$fontSizeMenuItem: 20px;
+	$articleListWidth: 240px;
+	$articleListHeigth: 300px;
+
+	html {
+		body {
+			position: relative;
+			padding-top: 90px;
+			font-family: $fontFamily !important;
+			color: $fontColor;
+			font-size: $fontSize;
+			background: #D4D4D4 url('/images/Screenshot.jpg');
+			background-attachment: fixed;
+
+			.logo{
+				position: relative;
+				
+				.strupko{
+					width: 50px;
+					position: absolute;
+					top:2px;
+				}
+
+				.logo-ankor{
+					position: absolute;
+					left:50px;
+					font-size: 38px;
+					text-transform: uppercase;
+				}
+			}
+
+			.ads-block{
+				margin-top: 15px;
+				margin-bottom: 15px;
+			}
+
+			.big{
+				font-size: $fontSizeTitle;
+			}
+
+			a.off{
+				padding-bottom: 5px;
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-top:10px;
+
+			}
+
+
+
+			.view-count{
+				position: absolute;
+				z-index: 100;
+				top: 0;
+				left: 0;
+
+				img{
+					width: 1px;
+					height: 1px;
+				}
+			}
+
+			.clear-row{
+				margin-left: -15px;
+				margin-right: -15px;
+			}
+
+			.navbar-nav{
+				padding-left: 280px;
+
+				li{
+					a{
+						font-size: $fontSizeMenuItem;
+					}
+				}
+			}
+
+			.navbar-static-top{
+				width: 110%;
+				position: absolute;
+				top: 0px;
+				@include box-shadow(0, 0, 15px, #333);
+				background-color: $bgColor;
+			}
+
+			.page{
+				padding-top: 15px;
+				background-color: $bgColor;
+				@include box-shadow(0, 0, 15px, #333);
+				background-color: $bgColor;
+			}
+
+			.container{
+				width: 1100px;
+
+				.block-title {
+					margin-top: 15px;
+					margin-bottom: 15px;
+					font-size: $fontSizeInfo;
+				}
+
+				.article-view-count{
+					margin-top: 5px;
+					color: #999;
+					font-size: 12px;
+				}
+
+
+				.right-block{
+					width: 300px;
+
+					.sidebar-block{
+						width: 300px;
+						margin-right: 0px;
+						margin-left: 15px;
+
+						.top-article-item{
+							position: relative;
+							height: 120px;
+							width: 300px;
+							margin-left: -15px;
+
+							.top-article-image {
+								position: absolute;
+								left: 0px;
+								width: 180px;
+								height: 110px;
+
+								& img{
+									width: 100%;
+									height: 100%;
+								}
+							}
+
+							.top-article-link {
+								position: absolute;
+								left:180px;
+								font-size: 14px;
+								margin-left: -10px;
+							}
+
+							span.ankor{
+								position: absolute;
+								left:180px;
+								top:30px;
+								width:120px;
+								font-size: 16px;
+							}
+						}
+
+						.top-article-image img{
+							width: 160px;
+							height: 90px;
+						}
+
+						.top-article-link{
+							font-size: 14px;
+							margin-left: -10px;
+						}
+					}
+				}
+
+				.left-block{
+					width: 800px;
+
+					.content-block{
+						margin-left: 15px;
+						margin-right: 15px;
+
+						@import "_books";
+						@import "_articles";
+
+						.last-block{
+							padding-bottom: 40px;
+							clear: both;
+
+							.last-block-title{
+								padding-top: 30px;
+								padding-bottom: 30px;
+								text-align: center;
+								font-size: $fontSizeInfo;
+							}
+						}
+
+						P {
+							text-indent: 1.5em; /* Отступ первой строки */
+							text-align: justify; /* Выравнивание по ширине */
+						}
+
+						.attachment  {
+							img{
+								margin-bottom: 5px;
+								max-width: 330px;
+								margin-right: 10px;
+								float: left;
+							}
+
+							& + p:after{
+								clear: both;
+								content: "";
+								display: table;
+							}
+
+						}
+					}
+				}
+
+				.bookmark {
+					margin-top: 15px;
+				}
+
+				.bookmark-btn{
+					width: 300px;
+					border-radius: 0px;
+				}
+
+				.brand-link a{
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: block;
+					height: 100%;
+					width: 100%;
+				}
+			}
+
+			#footer {
+
+				@include box-shadow(0, 0, 15px, #333);
+				background-color: $bgColor;
+				margin-top: 40px;
+
+				.container-footer{
+					margin: auto;
+					width: 800px;
+				}
+
+				ul {
+					list-style-type: none;
+				}
+
+				.footer-section {
+					padding-top: 15px;
+					padding-bottom: 15px;
+					margin-left: 40px;
+				}
+			}
+		}
+	}
+}
