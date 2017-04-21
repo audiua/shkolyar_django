@@ -34,8 +34,12 @@
 + noice modal
 + google search
 + footer
+
     ####v0.9.1
     + исправлено путь к фоновой картинки в scss
     
 ##v0.10 (21/04/2017)
 + sitemap.xmp generator
+    
+    ####v0.10.1
+    + add sitemap link in footer

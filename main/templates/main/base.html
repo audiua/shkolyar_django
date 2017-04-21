@@ -352,7 +352,7 @@
                         <li><a rel="nofollow" href="{% url 'main:rightholder' %}">Правовласникам</a></li>
                         <li><a rel="nofollow" href="{% url 'main:contact' %}">Контакти</a></li>
 {#                        <li><a rel="nofollow" href="{{ path('app_sitemap_html') }}">Карта сайта</a></li>#}
-{#                        <li><a rel="nofollow" href="{{ path('app_sitemap_xml') }}">sitemap.xml</a></li>#}
+                        <li><a rel="nofollow" href="{% url 'django.contrib.sitemaps.views.sitemap' %}">sitemap.xml</a></li>
                     </ul>
                 </div>
 
