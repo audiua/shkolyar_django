@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+{% load library_filters %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Література" "library:index" %}
+    {% breadcrumb author.author "library:author" author.slug %}
+{% endblock %}
+
+{% block content %}
+
+    {{ block.super }}
+
+    <h1 class="center">Біографія {{ h1 }}</h1>
+
+{#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'below-h1', 'entity': entity})) }}#}
+
+    {{ author.description|fix_library_img|safe }}
+
+    <h2 class="center">Твори {{ author.author }}</h2>
+    {% include 'library/books.html' with books=author.author_books.all %}
+
+{% endblock %}
+
+{% block view_count %}
+    <div class="view-count">
+{#        <img src="{{ path('app_api_imgcounter', {'data':'LibraryBundle:Author_'~author.uri}) }}" >#}
+    </div>
+{% endblock %}

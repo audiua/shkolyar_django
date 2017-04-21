@@ -180,9 +180,9 @@
 
 
                         <li>
-{#                            <a href="{{ url('library_default_index') }}">#}
-{#                                Література#}
-{#                            </a>#}
+                            <a href="{% url 'library:index' %}">
+                                Література
+                            </a>
                         </li>
                         {% load knowall_menu %}
                         {% knowall_menu %}
