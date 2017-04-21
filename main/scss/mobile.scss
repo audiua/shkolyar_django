@@ -1,0 +1,241 @@
+@media screen and (max-width: 998px) {
+  $bookListWidth:240px;
+  $bookListHeigth:320px;
+  $fontSize: 18px;
+  $fontSizeInfo: 26px;
+  $fontSizeTitle: 30px;
+  $fontSizeMenuItem: 20px;
+  $articleListWidth: 240px;
+  $articleListHeigth: 300px;
+
+  html {
+    min-height: 100%;
+
+    body {
+      position: relative;
+      font-family: $fontFamily !important;
+      color: $fontColor;
+      font-size: $fontSize;
+
+      .logo{
+        position: relative;
+
+        .strupko{
+          width: 50px;
+          position: absolute;
+          top:2px;
+        }
+
+        .logo-ankor{
+          position: absolute;
+          top:20px;
+          left:40px;
+          font-size: 36px;
+          text-transform: uppercase;
+        }
+      }
+
+      .ads-block{
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
+      .navbar-toggle .icon-bar {
+        background-color: #ccc;
+        width: 40px;
+        height: 5px;
+      }
+
+      .navbar {
+        margin-bottom: 0px;
+      }
+
+      .navbar-nav {
+        padding-left: 20px;
+
+        li {
+          a {
+            font-size: $fontSizeMenuItem;
+          }
+        }
+      }
+
+      .page {
+      }
+
+      .container {
+
+        .row{
+          margin-right: -15px;
+        }
+
+        .block-title {
+          margin-top: 15px;
+          margin-bottom: 15px;
+          font-size: 22px;
+        }
+
+        .article-view-count {
+          margin-top: 5px;
+          color: #999;
+          font-size: 12px;
+        }
+
+        .right-block {
+
+          .sidebar-block {
+
+            .block-title{
+              text-align: center;
+            }
+
+            .bookmark-btn-block {
+              text-align: center;
+            }
+
+            .social-links {
+              text-align: center;
+            }
+
+            #vk_groups {
+              margin: auto;
+            }
+
+            .top-article-item {
+              margin-bottom: 10px;
+              text-align: center;
+
+              .top-article-image {
+                a{
+
+                  img{
+                    width: 300px;
+                    height: 210px;
+                    margin: auto;
+                  }
+                }
+              }
+
+              .top-article-link {
+                font-size: 14px;
+                margin-bottom: 10px;
+              }
+            }
+
+
+
+
+          }
+        }
+
+        .left-block {
+
+          .content-block {
+
+            .last-block{
+              padding-bottom: 40px;
+              clear: both;
+
+              .last-block-title{
+                padding-top: 30px;
+                padding-bottom: 30px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: 600;
+              }
+            }
+
+            P {
+              text-indent: 1.5em; /* Отступ первой строки */
+              text-align: justify; /* Выравнивание по ширине */
+            }
+
+            img{
+              max-width: 290px;
+            }
+
+            @import "_books";
+            @import "_articles";
+
+            .book-view{
+              margin: auto;
+              height: $bookListHeigth + 20px;
+            }
+
+            .book {
+
+              .book-image {
+                margin: auto;
+                float: left;
+                margin-right: 30px;
+                img{
+                  width: $bookListWidth;
+                }
+              }
+
+              .book-properties {
+
+                .properties {
+                  font-size: 12px;
+                  color: #999;
+                  padding-right: 15px;
+                }
+              }
+            }
+
+          }
+
+        }
+
+        .bookmark {
+          margin-top: 15px;
+        }
+
+        .bookmark-btn {
+          width: 300px;
+        }
+
+        .brand-link a {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
+
+        .breadcrumb {
+        }
+
+        .breadcrumb, .btn-lg {
+          border-radius: 0px;
+        }
+      }
+
+      #footer {
+
+        background-color: $bgColor;
+        margin-top: 40px;
+
+        .container-footer{
+          margin: auto;
+        }
+
+        ul {
+          list-style-type: none;
+        }
+
+        .footer-section {
+          padding-top: 15px;
+          padding-bottom: 15px;
+          margin-left: 40px;
+        }
+      }
+
+      .view-pdf {
+        margin-top: 25px;
+      }
+
+    }
+  }
+}

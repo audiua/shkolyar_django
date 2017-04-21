@@ -1,0 +1,92 @@
+#noice-modal{
+  .close{
+    padding: 15px;
+    font-size: 32px;
+    font-weight: 600;
+  }
+}
+
+.noice-block{
+  height: 150px;
+}
+
+.noice{
+  height: 100px;
+  width: 100px;
+  opacity: 0.5;
+  margin-bottom: 15px;
+  margin-left: 40px;
+}
+
+.noice img{
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.noice.active{
+  opacity: 1;
+}
+
+.noice-title{
+  text-align: center;
+  font-size: 26px;
+  color: #fafafa;
+  padding: 25px;
+}
+.separator{
+  margin-top: 35px;
+}
+
+.modal{
+  border-bottom: 1px solid #2aabd2;
+  border-top: 1px solid #2aabd2;
+}
+
+.player{
+  width:100px !important;
+  margin-left: 40px;
+}
+
+.player > .slider{
+  display: none;
+}
+
+.noice.active + .player>.slider{
+  display: block;
+  width: 100% !important;
+}
+
+.tooltip{
+  display: none !important;
+}
+
+.slider-selection{
+  background-color: green !important;
+}
+
+.slider-horizontal .slider-handle-container, .slider-horizontal .slider-track{
+  height: 2px !important;
+}
+
+.slider-handle {
+  position: absolute;
+  width: 25px !important;;
+  height: 25px !important;;
+  cursor: pointer;
+  background-color: #fafafa !important;;
+  border-radius: 15px !important;;
+}
+
+.slider-horizontal .slider-handle {
+  margin-left: -10px;
+  margin-top: -12px !important;;
+}
+
+.modal-content{
+  background-color: #2aabd2;
+}
+
+.modal-header{
+  margin-bottom: 15px;
+}

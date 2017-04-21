@@ -1,0 +1,19 @@
+.item-block{
+  text-align: center;
+  margin-bottom: 10px;
+  height: $articleListHeigth;
+  width: $articleListWidth;
+  & a{
+    font-size: $fontSize;
+    display: block;
+  }
+  &:hover{
+    @include box-shadow(0, 0, 15px, #555);
+  }
+
+  img {
+    width: 250px;
+    height: 180px;
+    margin-bottom: 5px;
+  }
+}
