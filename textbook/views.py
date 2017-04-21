@@ -6,6 +6,9 @@ import time
 
 PAGE_ITEM = 12
 
+# TODO переделать пути в базе данных
+# TODO переделать путь сохранения картинки
+
 def index(request, page=1):
     """
         Список учебников

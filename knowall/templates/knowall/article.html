@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load textbook_filters %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Всезнайка" "knowall:index" %}
+    {% breadcrumb category.title "knowall:category" category.slug %}
+    {% breadcrumb article.title "knowall:article" category.slug article.slug %}
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+
+    <h1 class="center">{{ h1 }}</h1>
+    {% with 'knowall'|first_img:article.id as img_name %}
+{#        <img src="{% static 'knowall/article/'|str_add:article.id|str_add:"/"|str_add:img_name %}" class="img-responsive thumbnail" alt="{{ article.title }}">#}
+    {% endwith %}
+    {#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'below-h1', 'entity': entity})) }}#}
+    {{ article.text|fix_img|safe }}
+
+{#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'under-article', 'entity': entity})) }}#}
+
+    <div class="clearfix"></div>
+{% endblock %}
+
+{% block view_count %}
+    <div class="view-count">
+{#        <img src="{{ path('app_api_imgcounter', {'data':'WritingBundle:Writing_'~article.uri}) }}" >#}
+    </div>
+{% endblock %}
+
