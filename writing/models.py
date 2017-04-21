@@ -37,7 +37,7 @@ class WritingClas(BaseModel, TimestampModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('writing:clas', args=(self.clas.slug))
+        return reverse('writing:clas', args=(self.slug,))
 
 
 class WritingSubject(BaseModel, TimestampModel):
@@ -50,5 +50,5 @@ class WritingSubject(BaseModel, TimestampModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('writing:subject', args=(self.clas.slug,
-                                                self.subject.slug))
+        return reverse('writing:subject', args=(self.writing_clas.slug,
+                                                self.slug))

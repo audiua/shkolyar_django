@@ -37,7 +37,7 @@ class KnowallCategory(BaseModel, TimestampModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('knowall:category', args=(self.slug))
+        return reverse('knowall:category', args=(self.slug,))
 
 
 class KnowallGrab(models.Model):

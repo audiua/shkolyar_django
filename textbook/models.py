@@ -40,6 +40,10 @@ class TextbookBook(TimestampModel, PublishModel):
     def __str__(self):
         return "{} {}".format(self.textbook_subject.title, self.author)
 
+    def get_absolute_url(self):
+        return reverse('textbook:book', args=(self.textbook_clas.slug,
+                                              self.textbook_subject.slug, self.slug))
+
 
 class TextbookClas(BaseModel, TimestampModel):
     name = models.CharField(max_length=2, blank=True, null=True)
@@ -55,6 +59,9 @@ class TextbookClas(BaseModel, TimestampModel):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('textbook:clas', args=(self.slug,))
+
 
 class TextbookSubject(BaseModel, TimestampModel):
     textbook_clas = models.ForeignKey(TextbookClas, models.DO_NOTHING, blank=True, null=True, related_name="clas_subjects")
@@ -69,3 +76,6 @@ class TextbookSubject(BaseModel, TimestampModel):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('textbook:subject', args=(self.textbook_clas.slug, self.slug))
