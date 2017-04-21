@@ -6,7 +6,7 @@ urlpatterns = [
         views.subject, name='subject_paginate'),
     url(r'^(?P<clas_slug>[-0-9a-z]+)/page/(?P<page>\d+)/$', views.clas, name='clas_paginate'),
 
-    url(r'^(?P<clas_slug>[-0-9a-z]+)/(?P<subject_slug>[-_a-z]+)/(?P<book_slug>[-_a-z0-9]+)/$',
+    url(r'^(?P<clas_slug>[-0-9a-z]+)/(?P<subject_slug>[-_a-z0-9]+)/(?P<book_slug>[-_a-z0-9]+)/$',
         views.book, name='book'),
 
     # ссылка на страницу предмета с пагинацией

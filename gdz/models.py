@@ -61,3 +61,6 @@ class GdzBook(BaseModel, TimestampModel):
 
     objects = models.Manager()
     published = PublishedManager()
+
+    def get_absolute_url(self):
+        return reverse('gdz:book', args=[self.gdz_clas.slug, self.gdz_subject.slug, self.slug])
