@@ -47,7 +47,7 @@ a.off {
     font-family: "Open Sans Condensed", sans-serif !important;
     color: #555555;
     font-size: 18px;
-    background: #D4D4D4 url("/images/Screenshot.jpg");
+    background: #D4D4D4 url("/static/main/img/Screenshot.jpg");
     background-attachment: fixed; }
     html body .logo {
       position: relative; }

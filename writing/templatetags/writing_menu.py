@@ -5,9 +5,9 @@ register = template.Library()
 
 
 @register.inclusion_tag('writing/writing_menu.html', name='writing_menu', takes_context=True)
-def textbook_menu(context):
+def writing_menu(context):
     items = models.WritingSubject.objects.filter(subject_writings__public=1,
-                                             subject_writings__lte=time.time())
+                                             subject_writings__public_time__lte=time.time())
 
 
     menu_items = {}

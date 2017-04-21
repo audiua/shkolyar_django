@@ -28,6 +28,6 @@ class PublishModel(models.Model):
     class Meta:
         abstract = True
 
-    public_time = UnixTimeStampField(auto_now_add=True, use_numeric=True)
+    public_time = UnixTimeStampField(use_numeric=True, default=int(time.time()))
 
 

@@ -1,0 +1,23 @@
+{% load static %}
+{% load textbook_filters %}
+
+{% for article in articles %}
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="item-block">
+            <a href="{{ article.get_absolute_url }}">
+                {% with 'knowall'|first_img:article.id as img_name %}
+                    <img src="{% static 'knowall/article/'|str_add:article.id|str_add:"/"|str_add:img_name %}" class="img-responsive thumbnail" alt="{{ article.title }}">
+                {% endwith %}
+                <span class="ankor">{{ article.title }}</span> </a>
+
+            <div class="article-view-count">
+                <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {{ article.knowall_category.title }}
+            </div>
+            <div class="article-view-count">
+                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>  |
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ article.public_time|unix_date|date:"Y-d-m" }}
+            </div>
+
+        </div>
+    </div>
+{% endfor %}
