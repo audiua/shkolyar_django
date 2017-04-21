@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ page_title }}
+    {% if page > '1' %}
+         | Сторінка {{ page }}
+    {% endif %}
+{% endblock %}
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb "Література" "library:index" %}
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+
+    {% block h1 %}
+        <h1 class="center">{{ h1 }}
+            {% if page > '1' %}
+                <small> | Сторінка {{ page }}</small>
+            {% endif %}
+        </h1>
+    {% endblock %}
+
+{#    {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'below-h1', 'entity': entity})) }}#}
+
+    {% include 'library/authors.html' %}
+
+    {% if page == 1 %}
+        <div class="description">
+            <p>
+                Тут зібрані усі твори з української
+                та зарубіжної літератури, які вивчаються по шкільній програмі у старших класах (5-11). Ви можете знайти і читати їх онлайн у цьому розділі, що значно зручніше та легше ніж шукати потрібні твори по бібліотекам, а потім забувати їх здавати і через декілька років намагатися переконати бібліотекаря, що Ви їх ніколи не брали, що це якась помилка :). Ну звісно, у Вас так не буває. Усі твори згруповані по їх авторам, що значно полегшує пошук - Ви просто вибираєте потрібного автора, а потім необхідний твір.
+            </p>
+        </div>
+    {% endif %}
+
+{% endblock %}
+

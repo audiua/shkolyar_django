@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'textbook',
     'writing',
     'knowall',
+    'library',
 ]
 
 MIDDLEWARE = [

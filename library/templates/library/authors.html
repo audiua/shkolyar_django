@@ -1,0 +1,9 @@
+<div class="authors-block row">
+    {% for author in authors %}
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 center">
+            <a href="{{ author.get_absolute_url }}">{{ author.author }}</a>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="clearfix"></div>

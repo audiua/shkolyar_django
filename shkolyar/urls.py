@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^textbook/', include('textbook.urls', namespace='textbook')),
     url(r'^writing/', include('writing.urls', namespace='writing')),
     url(r'^knowall/', include('knowall.urls', namespace='knowall')),
+    url(r'^library/', include('library.urls', namespace='library')),
     url(r'^', include('main.urls', namespace='main')),
 ]
 

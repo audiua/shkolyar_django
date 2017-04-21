@@ -1,0 +1,17 @@
+{% load static %}
+{% load textbook_filters %}
+{% for book in books %}
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="item-block library-block">
+            <a href="{{ book.get_absolute_url }}">
+                <img src="{% static '/library/'|str_add:book.library_author.slug|str_add:'/'|str_add:book.slug|str_add:'/book/first.'|str_add:book.img_ext %}" class="img-responsive thumbnail library" alt="">
+                {{ book.title }}</a>
+            <div class="article-view-count">
+                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>  |
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ book.public_time|unix_date|date:"Y-d-m" }}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+<div class="clearfix"></div>

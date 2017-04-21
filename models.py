@@ -217,44 +217,6 @@ class KeywordPosition(models.Model):
 
 
 
-class LibraryAuthor(models.Model):
-    author = models.CharField(max_length=255)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField()
-    description = models.TextField()
-    slug = models.CharField(max_length=255)
-    length = models.SmallIntegerField()
-    nausea = models.FloatField()
-    public_time = models.IntegerField(unique=True)
-    public = models.IntegerField()
-    vk_img = models.TextField(blank=True, null=True)
-    vk_public_time = models.IntegerField(blank=True, null=True)
-    uri = models.CharField(max_length=255)
-
-    class Meta:
-        managed = False
-        db_table = 'library_author'
-
-
-class LibraryBook(models.Model):
-    title = models.CharField(max_length=255)
-    img_ext = models.CharField(max_length=255, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    library_author = models.ForeignKey(LibraryAuthor, models.DO_NOTHING, blank=True, null=True)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField()
-    slug = models.CharField(max_length=255)
-    length = models.SmallIntegerField()
-    nausea = models.FloatField()
-    public_time = models.IntegerField()
-    public = models.IntegerField()
-    vk_img = models.TextField(blank=True, null=True)
-    vk_public_time = models.IntegerField(blank=True, null=True)
-    uri = models.CharField(max_length=255)
-
-    class Meta:
-        managed = False
-        db_table = 'library_book'
 
 
 class Link(models.Model):

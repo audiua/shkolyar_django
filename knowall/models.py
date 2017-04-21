@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from main.models import BaseModel, TimestampModel, PublishModel, PublishedManager
-from unidecode import unidecode
+
 
 class Knowall(BaseModel, TimestampModel, PublishModel):
     text = models.TextField(blank=True, null=True)
