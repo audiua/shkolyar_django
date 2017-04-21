@@ -29,6 +29,18 @@
     {#<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">#}
     <!--[endif]-->
 
+    <script>
+        (function() {
+            var cx = '006022602701960109764:_snhrubnq9a';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+
 </head>
 <body class="grid-gradient">
 
@@ -322,13 +334,13 @@
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="sections footer-section"> <span class="glyphicon glyphicon-th-list" aria-hidden="true">Розділи</span></div>
                     <ul class="">
-{#                        <li><a href="{{ path('gdz_default_index') }}">ГДЗ</a></li>#}
+                        <li><a href="{% url 'gdz:index' %}">ГДЗ</a></li>
                         {#<li><a rel="nofollow" href="">ЗНО</a></li>#}
                         {#<li><a rel="nofollow" href="">ДПА</a></li>#}
-{#                        <li><a rel="nofollow" href="{{ path('textbook_default_index') }}">Підручники</a></li>#}
-{#                        <li><a rel="nofollow" href="{{ path('writing_default_index') }}">Твори</a></li>#}
-{#                        <li><a rel="nofollow" href="{{ path('library_default_index') }}">Література</a></li>#}
-{#                        <li><a rel="nofollow" href="{{ path('knowall_default_index') }}">Всезнайка</a></li>#}
+                        <li><a rel="nofollow" href="{% url 'textbook:index' %}">Підручники</a></li>
+                        <li><a rel="nofollow" href="{% url 'writing:index' %}">Твори</a></li>
+                        <li><a rel="nofollow" href="{% url 'library:index' %}">Література</a></li>
+                        <li><a rel="nofollow" href="{% url 'knowall:index' %}">Всезнайка</a></li>
                         {#<li><a href="">Ігри</a></li>#}
                     </ul>
                 </div>
@@ -336,9 +348,9 @@
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="info footer-section"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true">Інфо</span></div>
                     <ul class="">
-{#                        <li><a rel="nofollow" href="{{ path('app_about') }}">Про нас</a></li>#}
-{#                        <li><a rel="nofollow" href="{{ path('app_rightholder') }}">Правовласникам</a></li>#}
-{#                        <li><a rel="nofollow" href="{{ path('app_contacts') }}">Контакти</a></li>#}
+                        <li><a rel="nofollow" href="{% url 'main:about' %}">Про нас</a></li>
+                        <li><a rel="nofollow" href="{% url 'main:rightholder' %}">Правовласникам</a></li>
+                        <li><a rel="nofollow" href="{% url 'main:contact' %}">Контакти</a></li>
 {#                        <li><a rel="nofollow" href="{{ path('app_sitemap_html') }}">Карта сайта</a></li>#}
 {#                        <li><a rel="nofollow" href="{{ path('app_sitemap_xml') }}">sitemap.xml</a></li>#}
                     </ul>
@@ -348,9 +360,9 @@
                     <div class="helpfull footer-section"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">Корисне</span></div>
                     <ul class="">
                         <noindex>
-{#                            <li><a rel="nofollow" href="{{ path('app_contacts') }}">Повідомити про помилку</a></li>#}
-{#                            <li><a rel="nofollow" href="{{ path('app_contacts') }}">Зворотній зв'язок</a></li>#}
-                            {#<li><a rel="nofollow" href="{{ path('app_contacts') }}">Додати до закладок</a></li>#}
+                            <li><a rel="nofollow" href="{% url 'main:contact' %}">Повідомити про помилку</a></li>
+                            <li><a rel="nofollow" href="{% url 'main:contact' %}">Зворотній зв'язок</a></li>
+                            <li><a rel="nofollow" href="{% url 'main:contact' %}}">Додати до закладок</a></li>
 
                             {#<li><a href="">Ігри</a></li>#}
                         </noindex>
@@ -380,6 +392,12 @@
           {% block domready %}{% endblock %}
         });
     </script>
+
+    <!-- Modal -->
+    <div class="modals">
+        {% load noice %}
+        {% noice %}
+    </div>
 
 </body>
 </html>
