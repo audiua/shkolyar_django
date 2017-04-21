@@ -1,0 +1,15 @@
+<li class="dropdown">
+    <a rel="nofollow" href="{% url 'knowall:index' %}" tabindex="0" data-toggle="dropdown">
+        Всезнайка<span class="caret"></span>
+    </a>
+
+    <ul class="dropdown-menu">
+
+        {% for item in items %}
+            <li>
+                <a rel="nofollow" href="{% url 'knowall:category' item.slug %}">{{ item.title }}</a>
+            </li>
+        {% endfor %}
+
+    </ul>
+</li>

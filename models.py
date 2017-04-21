@@ -214,54 +214,7 @@ class KeywordPosition(models.Model):
         db_table = 'keyword_position'
 
 
-class Knowall(models.Model):
-    title = models.CharField(max_length=255)
-    text = models.TextField(blank=True, null=True)
-    knowall_category = models.ForeignKey('KnowallCategory', models.DO_NOTHING, blank=True, null=True)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField()
-    public = models.IntegerField()
-    description = models.CharField(max_length=255, blank=True, null=True)
-    slug = models.CharField(max_length=255)
-    public_time = models.IntegerField()
-    thumbnail_ext = models.CharField(max_length=255, blank=True, null=True)
-    length = models.SmallIntegerField()
-    nausea = models.FloatField()
-    vk_img = models.TextField(blank=True, null=True)
-    vk_public_time = models.IntegerField(blank=True, null=True)
-    uri = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'knowall'
-
-
-class KnowallCategory(models.Model):
-    title = models.CharField(max_length=255)
-    create_time = models.IntegerField()
-    update_time = models.IntegerField(d)
-    slug = models.CharField(max_length=255, blank=True, null=True)
-    description = models.CharField(max_length=1000, blank=True, null=True)
-    uri = models.CharField(max_length=255)
-
-    class Meta:
-        managed = False
-        db_table = 'knowall_category'
-
-
-class KnowallGrab(models.Model):
-    url = models.CharField(max_length=255)
-    raw = models.TextField()
-    content = models.TextField()
-    title = models.CharField(max_length=255)
-    category = models.CharField(max_length=255)
-    translate = models.TextField()
-    checked = models.IntegerField(blank=True, null=True)
-    translate_title = models.CharField(max_length=255, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'knowall_grab'
 
 
 class LibraryAuthor(models.Model):
