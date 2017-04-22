@@ -18,7 +18,7 @@ class WritingSubjectAdmin(admin.ModelAdmin):
 
 @admin.register(Writing)
 class WritingAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'slug', 'update_time', 'clas', 'subject', 'uri')
+    list_display = ('id', 'title', 'slug', 'update_time', 'clas', 'subject', 'uri', 'public')
     list_filter = ('clas', 'subject')
     search_fields = ('slug', 'title')
     raw_id_fields = ('clas', 'subject')
