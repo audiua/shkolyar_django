@@ -5,8 +5,7 @@
         <div class="item-block writing-block">
             {% with article.id|str_add:article.slug|md5 as hash %}
                 <a href="{{ article.get_absolute_url }}">
-{#                <img src="{{ asset('writing/thumbs/'~md5(article.id, article.slug)~'/'~article.slug~'.'~article.thumbnailExt) }}" class="img-responsive thumbnail writing" alt="">#}
-                    <img src="{% static "writing/thumbs/"|str_add:hash|str_add:"/"|str_add:article.slug|str_add:'.'|str_add:article.thumbnail_ext%}" class="img-responsive thumbnail writing" alt="">
+                    <img src="{% static "writing/thumbs/"|str_add:hash|str_add:"/"|str_add:article.slug|str_add:'.'|str_add:article.thumbnail_ext %}" class="img-responsive thumbnail writing" alt="">
                 {{ article.title }}</a>
             {% endwith %}
 
@@ -17,7 +16,7 @@
 
             <div class="article-view-count">
                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> |
-                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ article.create_time|date:"Y-m-d H:i:s" }}
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ article.create_time|unix_date|date:"Y-m-d" }}
             </div>
         </div>
     </div>
