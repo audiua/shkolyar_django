@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+    {% clear_breadcrumbs %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="description">
+        <p>
+            Раді вітати Вас на українському шкільному інформаційному порталі!
+            Даний портал створено з метою зібрання усіх матеріалів в одному місці, які потрібні для навчання в школі. Це збереже Ваш час на пошуки та допоможе Вам у навчанні. Усі матеріали на даному порталі збиралися з просторів інтернету з урахуванням шкільної програми для українських шкіл. Ми витратили надзвичайно багато часу та зусиль,
+            щоб досягнути поставленої мети.
+        </p>
+    </div>
+
+    {% load gdz_last_items %}
+    {% gdz_last_items %}
+
+    {% load textbook_last_items %}
+    {% textbook_last_items %}
+
+    {% load writing_last_items %}
+    {% writing_last_items %}
+
+    {% load knowall_last_items %}
+    {% knowall_last_items %}
+
+    {% load library_last_items %}
+    {% library_last_items %}
+
+    <div class="description">
+        <p>
+            Ми сподіваємося, що шкільний портал
+            <span class="sketc">SHKOLYAR.INFO</span>
+            стане для Вас надійним помічником у швидкому та зручному пошуку правильних відповідей на домашні завдання, шкільних підручників онлайн, творів з художньої літератури, зразків написання шкільних творів. А також допоможе Вам розкрити великі таємниці навколишнього світу у розділі для всезнайок.
+        </p>
+    </div>
+
+
+{% endblock %}
+

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'main/index.html')
+    page_title = "Shkolyar"
+    return render(request, 'main/index.html', {'page_title': page_title})
 
 def contact(request):
     return render(request, 'main/contact.html')
