@@ -291,6 +291,8 @@
     {#                            {{ render(controller('AdsBundle:Default:adsPlace', {'place': 'sidebar-top', 'entity':entity})) }}#}
                             </div>
 
+                                {% load top_pages %}
+                                {% top_pages %}
     {#                        {{ render(controller('KnowallBundle:Default:top', {'not_in': app.request.requestUri})) }}#}
 
                             <div class="ads-block">

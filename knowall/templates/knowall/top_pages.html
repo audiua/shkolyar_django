@@ -1,0 +1,48 @@
+{% load static %}
+{% load textbook_filters %}
+<div class="top-articles">
+    <noindex>
+        <div class="block-title">
+            Популярні записи
+        </div>
+        {% for article in articles %}
+
+            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12  top-article-item">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 top-article-image">
+                    <a rel="nofollow" class="" href="{{ article.get_absolute_url }}">
+                        {% with 'knowall'|first_img:article.id as img_name %}
+                            <img src="{% static 'knowall/article/'|str_add:article.id|str_add:"/"|str_add:img_name %}" class="img-responsive thumbnail" alt="{{ article.title }}">
+                        {% endwith %}
+                        <span class="ankor">{{ article.title }}</span></a>
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 top-article-link">
+                    <div class="article-view-count">
+                        <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {{ article.knowall_category.title }} |
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> {{ article.view_count }}
+                    </div>
+                </div>
+            </div>
+
+
+        {% endfor %}
+
+{#        <div class="bookmark-btn-block top-pagination">#}
+{#            <button type="button" data-page="{{ page }}" class="btn btn-lg btn-info bookmark-btn top-next">#}
+{#                Наступні записи <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>#}
+{#            </button>#}
+{#        </div>#}
+
+        {#<div class="top-pagination bs-callout bs-callout-info">#}
+            {#<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">#}
+                {#<div data-page="{{ page }}" class="top-next btn btn-success col-lg-12 col-md-12">Наступні записи <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></div>#}
+            {#</div>#}
+            {#<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">#}
+                {#<div class="top-random btn btn-info col-lg-12 col-md-12">Випадкові <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></div>#}
+            {#</div>#}
+        {#</div>#}
+
+    </noindex>
+</div>
+
+<div class="clearfix"></div>

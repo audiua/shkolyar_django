@@ -50,11 +50,11 @@ sitemaps = {
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^gdz/', include('gdz.urls', namespace='gdz')),
-    url(r'^textbook/', include('textbook.urls', namespace='textbook')),
-    url(r'^writing/', include('writing.urls', namespace='writing')),
-    url(r'^knowall/', include('knowall.urls', namespace='knowall')),
-    url(r'^library/', include('library.urls', namespace='library')),
+    url(r'^gdz', include('gdz.urls', namespace='gdz')),
+    url(r'^textbook', include('textbook.urls', namespace='textbook')),
+    url(r'^writing', include('writing.urls', namespace='writing')),
+    url(r'^knowall', include('knowall.urls', namespace='knowall')),
+    url(r'^library', include('library.urls', namespace='library')),
 
     url(r'^sitemap\.xml$', cache_page(86400, cache="default")(sitemap) , {'sitemaps': sitemaps},
     name='django.contrib.sitemaps.views.sitemap'),
