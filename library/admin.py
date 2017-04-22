@@ -22,3 +22,4 @@ class LibraryAuthorAdmin(admin.ModelAdmin):
     list_display = ('id', 'author', 'slug', 'uri')
     # list_filter = ('slug', 'create_time')
     search_fields = ('slug', 'author')
+    prepopulated_fields = {'slug': ('author',)}

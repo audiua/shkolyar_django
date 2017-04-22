@@ -1,9 +1,9 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from main.models import BaseModel, TimestampModel, PublishModel, PublishedManager
+from main.models import BaseModel, TimestampModel, PublishModel, PublishedManager, ViewCounterModel
 from unixtimestampfield.fields import UnixTimeStampField
 
-class Writing(BaseModel, TimestampModel, PublishModel):
+class Writing(BaseModel, TimestampModel, PublishModel, ViewCounterModel):
     clas = models.ForeignKey('WritingClas', models.DO_NOTHING, blank=True, null=True)
     subject = models.ForeignKey('WritingSubject', models.DO_NOTHING, blank=True, null=True, related_name='subject_writings')
     text = models.TextField()
@@ -28,6 +28,10 @@ class Writing(BaseModel, TimestampModel, PublishModel):
                                                 self.subject.slug,
                                                 self.slug))
 
+    def save(self, *args, **kwargs):
+        self.uri = reverse('writing:article', args={self.clas.slug, self.subject.slug, self.slug})
+        super(Writing, self).save(*args, **kwargs)
+
 
 class WritingClas(BaseModel, TimestampModel):
     class Meta:
@@ -38,6 +42,10 @@ class WritingClas(BaseModel, TimestampModel):
 
     def get_absolute_url(self):
         return reverse('writing:clas', args=(self.slug,))
+
+    def save(self, *args, **kwargs):
+        self.uri = reverse('writing:clas', args={self.slug})
+        super(WritingClas, self).save(*args, **kwargs)
 
 
 class WritingSubject(BaseModel, TimestampModel):
@@ -50,5 +58,8 @@ class WritingSubject(BaseModel, TimestampModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('writing:subject', args=(self.writing_clas.slug,
-                                                self.slug))
+        return reverse('writing:subject', args=(self.writing_clas.slug, self.slug))
+
+    def save(self, *args, **kwargs):
+        self.uri = reverse('writing:subject', args={self.clas.slug, self.slug})
+        super(WritingSubject, self).save(*args, **kwargs)
