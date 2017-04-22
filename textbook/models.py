@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from main.models import BaseModel, TimestampModel, PublishModel
+from main.models import BaseModel, TimestampModel, PublishModel, ViewCounterModel
 from unixtimestampfield.fields import UnixTimeStampField
 import time
 
@@ -11,7 +11,7 @@ class PublishedManager(models.Manager):
                                             .filter(public=1,
                                                     public_time__lte=int(time.time()))
 
-class TextbookBook(TimestampModel, PublishModel):
+class TextbookBook(TimestampModel, PublishModel, ViewCounterModel):
     textbook_clas = models.ForeignKey('TextbookClas', models.DO_NOTHING, blank=True, null=True, related_name="clas_textbooks")
     textbook_subject = models.ForeignKey('TextbookSubject', models.DO_NOTHING, blank=True, null=True, related_name="subject_textbooks")
     author = models.CharField(max_length=500)
@@ -44,6 +44,10 @@ class TextbookBook(TimestampModel, PublishModel):
         return reverse('textbook:book', args=(self.textbook_clas.slug,
                                               self.textbook_subject.slug, self.slug))
 
+    def save(self, *args, **kwargs):
+        self.uri = reverse('textbook:book', args={self.textbook_clas.slug, self.textbook_subject.slug, self.slug})
+        super(TextbookBook, self).save(*args, **kwargs)
+
 
 class TextbookClas(BaseModel, TimestampModel):
     name = models.CharField(max_length=2, blank=True, null=True)
@@ -63,6 +67,11 @@ class TextbookClas(BaseModel, TimestampModel):
         return reverse('textbook:clas', args=(self.slug,))
 
 
+    def save(self, *args, **kwargs):
+        self.uri = reverse('textbook:clas', args={self.slug})
+        super(TextbookClas, self).save(*args, **kwargs)
+
+
 class TextbookSubject(BaseModel, TimestampModel):
     textbook_clas = models.ForeignKey(TextbookClas, models.DO_NOTHING, blank=True, null=True, related_name="clas_subjects")
     description = models.CharField(max_length=255, blank=True, null=True)
@@ -79,3 +88,7 @@ class TextbookSubject(BaseModel, TimestampModel):
 
     def get_absolute_url(self):
         return reverse('textbook:subject', args=(self.textbook_clas.slug, self.slug))
+
+    def save(self, *args, **kwargs):
+        self.uri = reverse('textbook:book', args={self.textbook_clas.slug, self.slug})
+        super(TextbookSubject, self).save(*args, **kwargs)
