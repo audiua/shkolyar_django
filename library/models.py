@@ -1,5 +1,5 @@
 from django.db import models
-from main.models import BaseModel, PublishedManager, TimestampModel, PublishModel
+from main.models import BaseModel, PublishedManager, TimestampModel, PublishModel, ViewCounterModel
 from django.core.urlresolvers import reverse
 
 class LibraryAuthor(TimestampModel, PublishModel):
@@ -25,8 +25,12 @@ class LibraryAuthor(TimestampModel, PublishModel):
     def get_absolute_url(self):
         return reverse('library:author', args=(self.slug,))
 
+    def save(self, *args, **kwargs):
+        self.uri = reverse('library:author', args={self.slug})
+        super(LibraryAuthor, self).save(*args, **kwargs)
 
-class LibraryBook(BaseModel, TimestampModel, PublishModel):
+
+class LibraryBook(BaseModel, TimestampModel, PublishModel, ViewCounterModel):
     img_ext = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     library_author = models.ForeignKey(LibraryAuthor, models.DO_NOTHING,
@@ -48,3 +52,7 @@ class LibraryBook(BaseModel, TimestampModel, PublishModel):
 
     def get_absolute_url(self):
         return reverse('library:book', args=(self.library_author.slug, self.slug))
+
+    def save(self, *args, **kwargs):
+        self.uri = reverse('library:book', args={self.library_author.slug, self.slug})
+        super(LibraryBook, self).save(*args, **kwargs)

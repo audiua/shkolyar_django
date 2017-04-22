@@ -409,14 +409,7 @@ class User(models.Model):
         db_table = 'user'
 
 
-class ViewCount(models.Model):
-    model = models.CharField(max_length=55)
-    counter = models.IntegerField()
-    uri = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'view_count'
 
 
 class VkTimePosting(models.Model):

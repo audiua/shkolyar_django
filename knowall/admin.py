@@ -22,6 +22,8 @@ class KnowallCategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'slug', 'uri')
     # list_filter = ('slug', 'create_time')
     search_fields = ('slug', 'title')
+    prepopulated_fields = {'slug': ('title',)}
+
 
 
 @admin.register(KnowallGrab)

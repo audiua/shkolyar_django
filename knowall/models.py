@@ -1,9 +1,9 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from main.models import BaseModel, TimestampModel, PublishModel, PublishedManager
+from main.models import BaseModel, TimestampModel, PublishModel, PublishedManager, ViewCounterModel
 
 
-class Knowall(BaseModel, TimestampModel, PublishModel):
+class Knowall(BaseModel, TimestampModel, PublishModel, ViewCounterModel):
     text = models.TextField(blank=True, null=True)
     knowall_category = models.ForeignKey('KnowallCategory', models.DO_NOTHING, blank=True, null=True, related_name='articles')
     public = models.BooleanField(default=False)
@@ -27,6 +27,10 @@ class Knowall(BaseModel, TimestampModel, PublishModel):
         return reverse('knowall:article', args=(self.knowall_category.slug,
                                                 self.slug))
 
+    def save(self, *args, **kwargs):
+        self.uri = reverse('knowall:article', args={self.knowall_category.slug, self.slug})
+        super(Knowall, self).save(*args, **kwargs)
+
 class KnowallCategory(BaseModel, TimestampModel):
     description = models.CharField(max_length=1000, blank=True, null=True)
 
@@ -38,6 +42,10 @@ class KnowallCategory(BaseModel, TimestampModel):
 
     def get_absolute_url(self):
         return reverse('knowall:category', args=(self.slug,))
+
+    def save(self, *args, **kwargs):
+        self.uri = reverse('knowall:category', args={self.slug})
+        super(KnowallCategory, self).save(*args, **kwargs)
 
 
 class KnowallGrab(models.Model):

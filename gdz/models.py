@@ -1,12 +1,12 @@
 import time
 from django.db import models
 from django.core.urlresolvers import reverse
-from main.models import BaseModel, TimestampModel, PublishedManager
+from main.models import BaseModel, TimestampModel, PublishedManager, ViewCounterModel
 from unixtimestampfield.fields import UnixTimeStampField
 
 class GdzClas(BaseModel, TimestampModel):
     description = models.TextField(blank=True, null=True)
-    is_promote = models.BooleanField()
+    is_promote = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'gdz_clas'
@@ -19,6 +19,10 @@ class GdzClas(BaseModel, TimestampModel):
 
     def __str__(self):
         return "{} клас".format(self.slug)
+
+    def save(self, *args, **kwargs):
+        self.uri = reverse('gdz:clas', args={self.slug})
+        super(GdzClas, self).save(*args, **kwargs)
 
 class GdzSubject(BaseModel, TimestampModel):
     description = models.TextField(blank=True, null=True)
@@ -37,8 +41,12 @@ class GdzSubject(BaseModel, TimestampModel):
     def __str__(self):
         return "{} {} клас".format(self.title, self.gdz_clas.slug)
 
+    def save(self, *args, **kwargs):
+        self.uri = reverse('gdz:subject', args={self.gdz_clas.slug, self.slug})
+        super(GdzSubject, self).save(*args, **kwargs)
 
-class GdzBook(BaseModel, TimestampModel):
+
+class GdzBook(BaseModel, TimestampModel, ViewCounterModel):
     author = models.CharField(max_length=255)
     gdz_clas = models.ForeignKey('GdzClas', models.DO_NOTHING, blank=True, null=True, related_name='gdz_clas_books')
     gdz_subject = models.ForeignKey('GdzSubject', models.DO_NOTHING, blank=True, null=True, related_name='gdz_subject_books')
@@ -64,3 +72,7 @@ class GdzBook(BaseModel, TimestampModel):
 
     def get_absolute_url(self):
         return reverse('gdz:book', args=[self.gdz_clas.slug, self.gdz_subject.slug, self.slug])
+
+    def save(self, *args, **kwargs):
+        self.uri = reverse('gdz:book', args={self.gdz_clas.slug, self.gdz_subject.slug, self.slug})
+        super(GdzBook, self).save(*args, **kwargs)
