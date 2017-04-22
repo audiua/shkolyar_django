@@ -24,27 +24,7 @@ class Ankor(models.Model):
         db_table = 'ankor'
 
 
-class Banner(models.Model):
-    title = models.CharField(max_length=255)
-    refresh = models.IntegerField(blank=True, null=True)
-    is_active = models.IntegerField()
-    type = models.CharField(max_length=255)
-    code = models.TextField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'banner'
-
-
-class BannerCode(models.Model):
-    code = models.TextField(blank=True, null=True)
-    is_active = models.IntegerField()
-    view_count = models.IntegerField(blank=True, null=True)
-    banner = models.ForeignKey(Banner, models.DO_NOTHING, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'banner_code'
 
 
 class BannerDump(models.Model):
@@ -267,29 +247,7 @@ class PageWeigth(models.Model):
         db_table = 'page_weigth'
 
 
-class Place(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.CharField(unique=True, max_length=255)
-    created_at = models.IntegerField()
-    updated_at = models.IntegerField()
-    refresh = models.IntegerField(blank=True, null=True)
-    type = models.CharField(max_length=255, blank=True, null=True)
-    is_active = models.IntegerField()
-    entity = models.CharField(max_length=255, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'place'
-
-
-class PlaceBanner(models.Model):
-    place = models.ForeignKey(Place, models.DO_NOTHING, primary_key=True)
-    banner = models.ForeignKey(Banner, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'place_banner'
-        unique_together = (('place', 'banner'),)
 
 
 class Position(models.Model):
