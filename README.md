@@ -1,3 +1,5 @@
+https://travis-ci.org/audiua/shkolyar_django.svg?branch=master
+
 # shkolyar_django
 ###v0.1 (18/04/2017)
 + Init django progect
