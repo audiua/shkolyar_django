@@ -1,5 +1,4 @@
-https://travis-ci.org/audiua/shkolyar_django.svg?branch=master
-
+[![Build Status](https://travis-ci.org/audiua/shkolyar_django.svg?branch=master)](https://travis-ci.org/audiua/shkolyar_django)
 # shkolyar_django
 ###v0.1 (18/04/2017)
 + Init django progect
