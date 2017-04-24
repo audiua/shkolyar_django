@@ -14,16 +14,16 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
-    title = models.CharField(max_length=255, unique=True)
-    slug = models.SlugField(max_length=255, unique=True)
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255)
     uri = models.CharField(max_length=255, unique=True)
 
 class TimestampModel(models.Model):
     class Meta:
         abstract = True
 
-    create_time = UnixTimeStampField(auto_now_add=True)
-    update_time = UnixTimeStampField(auto_now=True)
+    create_time = UnixTimeStampField(auto_now_add=True, use_numeric=True, default=0.0)
+    update_time = UnixTimeStampField(auto_now=True, use_numeric=True, default=0.0)
 
 class PublishModel(models.Model):
     class Meta:
