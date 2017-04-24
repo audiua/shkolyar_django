@@ -1,11 +1,14 @@
 appdirs==1.4.3
 arrow==0.10.0
+coverage==4.3.4
 Django==1.11
 django-bootstrap-breadcrumbs==0.8.2
 django-bower==5.2.0
+django-nose==1.4.4
 django-unixtimestampfield==0.3.9
 mysqlclient==1.3.10
 natsort==5.0.2
+nose==1.3.7
 olefile==0.44
 packaging==16.8
 Pillow==4.1.0
@@ -13,5 +16,6 @@ PyMySQL==0.7.11
 pyparsing==2.2.0
 python-dateutil==2.6.0
 pytz==2017.2
+PyYAML==3.12
 six==1.10.0
 Unidecode==0.4.20
