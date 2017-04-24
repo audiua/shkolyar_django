@@ -49,6 +49,13 @@ INSTALLED_APPS = [
     'knowall',
     'library',
     'ads',
+    'django_nose',
+]
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=gdz',
 ]
 
 MIDDLEWARE = [
@@ -94,8 +101,16 @@ DATABASES = {
          'PASSWORD': 'zxcvbnm123',
          'HOST': 'localhost',
          'PORT': '',
+         'OPTIONS': {'charset': 'utf8mb4'},
      }
 }
+
+import sys
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase'
+    }
 
 
 # Password validation
