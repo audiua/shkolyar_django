@@ -11,7 +11,7 @@ class TestGdzBook(TestCase):
         books = GdzBook.published.all()
         client = Client()
         for book in books:
-            response = client.get(reverse('gdz:book', args={book.gdz_clas.slug,
+            response = client.get(reverse('gdz:book', args=(book.gdz_clas.slug,
                                                             book.gdz_subject.slug,
-                                                            book.slug}))
+                                                            book.slug)))
             self.assertEqual(response.status_code, 200)
