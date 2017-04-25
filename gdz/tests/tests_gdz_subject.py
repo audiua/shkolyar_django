@@ -11,6 +11,6 @@ class TestGdzSubject(TestCase):
         subjects = GdzSubject.objects.all()
         client = Client()
         for subject in subjects:
-            response = client.get(reverse('gdz:subject', args={subject.gdz_clas.slug,
-                                                               subject.slug}))
+            response = client.get(reverse('gdz:subject', args=(subject.gdz_clas.slug,
+                                                               subject.slug)))
             self.assertEqual(response.status_code, 200)

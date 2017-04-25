@@ -50,6 +50,8 @@ sitemaps = {
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/v1/gdz/', include('gdz.urls', namespace='gdz_api')),
     url(r'^gdz', include('gdz.urls', namespace='gdz')),
     url(r'^textbook', include('textbook.urls', namespace='textbook')),
     url(r'^writing', include('writing.urls', namespace='writing')),
