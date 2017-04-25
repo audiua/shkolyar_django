@@ -7,6 +7,7 @@ from django import template
 from django.conf import settings
 from gdz import models
 register = template.Library()
+from raven.contrib.django.raven_compat.models import client
 
 
 @register.inclusion_tag('gdz/gdz_tasks.html', name='gdz_tasks', takes_context=True)
@@ -50,6 +51,7 @@ def gdz_menu(context):
             item['childs'] = images
     except:
         items = []
+        client.captureException()
 
     # items = natsorted(items)
     # print(item)
