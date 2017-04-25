@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+from .local_setting import RAVEN_CONFIG
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
     'ads',
     'django_nose',
     'rest_framework',
+    'raven.contrib.django.raven_compat',
 ]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
@@ -68,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'main.middleware.ViewCounterMiddleware',
+    'raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
 ]
 
 ROOT_URLCONF = 'shkolyar.urls'
@@ -196,4 +200,6 @@ REST_FRAMEWORK = {
     # ],
     'PAGE_SIZE': 10
 }
+
+RAVEN_CONFIG
 
