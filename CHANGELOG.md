@@ -73,3 +73,7 @@
     + add travis
     + add requirements
     + add all migrations
+    
+##v0.16 (25/04/2017)
++ добавлено REST API для гдз приложения
++ добавлены тесты для API

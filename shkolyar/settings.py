@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'library',
     'ads',
     'django_nose',
+    'rest_framework',
 ]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
@@ -188,4 +189,11 @@ CACHES = {
     }
 }
 
+
+REST_FRAMEWORK = {
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAdminUser',
+    # ],
+    'PAGE_SIZE': 10
+}
 

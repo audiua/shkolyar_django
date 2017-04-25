@@ -4,6 +4,9 @@ from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 from django.core.paginator import EmptyPage, Paginator
 from .models import GdzBook, GdzSubject, GdzClas
+from rest_framework import viewsets
+from .serialisers import GdzClasSerializer, GdzSubjectSerializer, GdzBookSerializer
+
 
 PAGE_ITEM = 12
 
@@ -90,3 +93,27 @@ def book(request, clas_slug, subject_slug, book_slug):
 
 def task(request, book_slug, task_number):
     pass
+
+
+class GdzClasViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows gdz_clas to be viewed.
+    """
+    queryset = GdzClas.objects.all().order_by('-create_time')
+    serializer_class = GdzClasSerializer
+
+
+class GdzSubjectViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows gdz_subject to be viewed.
+    """
+    queryset = GdzSubject.objects.all().order_by('-create_time')
+    serializer_class = GdzSubjectSerializer
+
+
+class GdzBookViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows gdz_book to be viewed.
+    """
+    queryset = GdzBook.published.all().order_by('-public_time')
+    serializer_class = GdzBookSerializer
