@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+import djcelery
 from .local_setting import RAVEN_CONFIG
 
 
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django_nose',
     'rest_framework',
     'raven.contrib.django.raven_compat',
+    'djcelery',
 ]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
@@ -202,4 +203,12 @@ REST_FRAMEWORK = {
 }
 
 RAVEN_CONFIG
+
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_SEND_TASK_ERROR_EMAILS = True
+djcelery.setup_loader()
 
