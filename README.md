@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/audiua/shkolyar_django.svg?branch=master)](https://travis-ci.org/audiua/shkolyar_django)
+
 # shkolyar_django
 ###v0.1 (18/04/2017)
 + Init django progect
@@ -75,3 +76,8 @@
     + add travis
     + add requirements
     + add all migrations
+    
+    
+##v0.16 (25/04/2017)
++ добавлено REST API для гдз приложения
++ добавлены тесты для API
